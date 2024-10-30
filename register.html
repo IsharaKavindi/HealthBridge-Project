@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelthBridge</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div>
+        <div class="nav">
+            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+            <button class="sign_upbtn">Sign Up</button>
+        </div>
+        <h2>Register Here</h2>
+        <div class="patientRegister">
+            <div class="image-upload">
+                <label for="profileImage" class="upload-label">
+                    <img id="profilePreview" src="default-avatar.png" alt="Profile Preview">
+                    <span>Upload Profile Image</span>
+                </label>
+                <input type="file" id="profileImage" name="profileImage" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <div class="patientRegister_div">
+                <p>Title</p>
+                <select>
+                    <option>Mr</option>
+                    <option>Ms</option>
+                    <option>Mrs</option>
+                </select>
+                <p>First Name</p>
+                <input placeholder="Firsr Name">
+                <p>Last Name</p>
+                <input placeholder="Last Name">
+            </div>
+            <div class="patientRegister_div">
+                <p>Username</p>
+                <input type="">
+                <p>Date of Birth</p>
+                <input type="date">
+                <p>NIC/Passport</p>
+                <input type="">
+            </div>
+            <div class="patientRegister_div">
+                <p>Phone Number</p>
+                <input type="number">
+                <p>Address</p>
+                <input type="">
+                <p>NIC/Passport</p>
+                <input type="">
+            </div>
+            <div class="patientRegister_div">
+                <p>Password</p>
+                <input type="password">
+                <p>Confirm Password</p>
+                <input type="password">
+                <p>Date of Register</p>
+                <input type="date">
+            </div>
+        </div>
+        <div class="footer">
+            <div id="detail">
+                <p>+94756784566</p>
+                <p>healthbridge@echannelling.com</p>
+                <p>HealthBridge PLC, No:108, W A D Ramanayaka Mawatha, Colombo2, SriLanka</p>
+            </div>
+            <div>
+                <h3>Other</h3>
+                <p>Tearms and Conditions</p>
+                <p>FAQ</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div>
+                <h3>About</h3>
+                <p>The Company</p>
+                <p>Partners</p>
+                <p>Careers</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
