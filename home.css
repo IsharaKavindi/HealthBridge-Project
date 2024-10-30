@@ -59,7 +59,7 @@
  #specialits_div{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    height:220px;
+   
     gap: 20px;
     margin:10px 170px;
     text-align: center;
@@ -161,9 +161,45 @@
    justify-content: space-around;
  }
 
- .login{
+ .logindiv{
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   padding: 130px 0px;
+ }
+
+ .login1,.login2 {
    text-align: center;
    height:400px;
    width:300px;
    box-shadow: 1px 1px 1px 1px grey;
+   background-color: white;
+ }
+
+ .login1{
+   border-radius: 20px 0px 0px 20px;
+ }
+
+ .login2{
+   border-radius: 0px 20px 20px 0px;
+ }
+
+ .login_img{
+   height: 400px;
+   width:400px;
+
+ }
+
+ #login_topic{
+   margin-top:50px;
+ }
+
+ .login_txt{
+   color:rgb(14, 77, 165);
+
+ }
+
+ .span{
+   color:rgb(14, 77, 165);
+   font-weight: bold;
  }
