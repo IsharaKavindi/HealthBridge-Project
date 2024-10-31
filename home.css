@@ -252,7 +252,7 @@
   
 }
 
-.docProfile1, .docProfile2, .docProfile3{
+.docProfile1, .docProfile2{
   margin-top: 50px;
   border:none;
   box-shadow: 1px 1px 1px 1px grey;
@@ -260,21 +260,74 @@
 }
 
 .docProfile1{
-  height: 300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
   width:270px;
 }
 
 .docProfile2{
   height: 500px;
   width:400px;
+  text-align: center;
 }
 
 .docProfile3{
   height: 500px;
-  width:400px;
+  width:600px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .channelbtn_div{
   text-align: center;
-  padding:50px 0px;
+  padding:40px 0px;
+}
+
+.shedule_div{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border:none;
+  box-shadow: 1px 1px 1px 1px grey;
+  margin:10px 10px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.topic{
+  color:rgb(14, 77, 165);
+}
+
+.shedule_date{
+  font-size: 18px;
+}
+
+.Fee{
+  color:rgb(16, 167, 71);
+}
+
+.doc_img{
+  height:180px;
+  width: auto;
+  border-radius: 200px; 
+}
+
+.doc_name{
+  margin-top:30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.doc_category{
+  margin-top:10px;
+  color:rgb(14, 77, 165);
+ 
+}
+.doc_detail{
+  padding:0px 0px;
+  margin:0px 0px 10px 0px;
+  color:rgb(78, 76, 76)
 }
