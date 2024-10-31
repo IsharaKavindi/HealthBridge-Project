@@ -6,77 +6,60 @@
     <title>HelthBridge</title>
     <link rel="stylesheet" href="home.css">
 </head>
-<body>
-    <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
-            <button class="sign_upbtn">Sign Up</button>
-        </div>
-        <h2>Register Here</h2>
+<body class="register_body">
         <div class="patientRegister">
-            <div class="image-upload">
+            <h2 id="register_text">Register Here</h2>
+            <div class="patientRegister_div">
                 <label for="profileImage" class="upload-label">
-                    <img id="profilePreview" src="default-avatar.png" alt="Profile Preview">
-                    <span>Upload Profile Image</span>
+                    <img id="profilePreview" src="img/profile_img.jpeg" alt="Profile Preview">
+                    <!-- <span>Upload Profile Image</span> -->
                 </label>
-                <input type="file" id="profileImage" name="profileImage" accept="image/*" onchange="previewImage(event)">
+                <input class="search_icn" type="file" id="patientImage" name="patientImage" accept="image/*">
+                <label>Username</label>
+                <input class="search_icn" type="text" id="patientUsername" name="patientUsername">
             </div>
             <div class="patientRegister_div">
-                <p>Title</p>
-                <select>
+                <label>Title</label>
+                <select class="search_icn" id="patientTitle" name="patientTitle">
                     <option>Mr</option>
                     <option>Ms</option>
                     <option>Mrs</option>
                 </select>
-                <p>First Name</p>
-                <input placeholder="Firsr Name">
-                <p>Last Name</p>
-                <input placeholder="Last Name">
+                <label>First Name</label>
+                <input class="search_icn" placeholder="First Name" id="patientFirstname" name="patientFirstname">
+                <label>Last Name</label>
+                <input class="search_icn" placeholder="Last Name" id="patientLastname" name="patientLastname">
             </div>
+            
             <div class="patientRegister_div">
-                <p>Username</p>
-                <input type="">
-                <p>Date of Birth</p>
-                <input type="date">
-                <p>NIC/Passport</p>
-                <input type="">
+                <label>Email</label>
+                <input class="search_icn" type="email" id="patientEmail" name="patientEmail">
+                <label>Date of Birth</label>
+                <input class="search_icn" type="date" id="patientDOB" name="patientDOB">
             </div>
+            
             <div class="patientRegister_div">
-                <p>Phone Number</p>
-                <input type="number">
-                <p>Address</p>
-                <input type="">
-                <p>NIC/Passport</p>
-                <input type="">
+                <label>NIC/Passport</label>
+                <input class="search_icn" type="text" id="patientNIC" name="patientNIC">
+                <label>Phone Number</label>
+                <input class="search_icn" type="number" id="patientPhoneNo" name="patientPhoneNo">
             </div>
+
             <div class="patientRegister_div">
-                <p>Password</p>
-                <input type="password">
-                <p>Confirm Password</p>
-                <input type="password">
-                <p>Date of Register</p>
-                <input type="date">
+                <label>Address</label>
+                <input class="search_icn" type="text" id="patientAddress" name="patientAddress">
+                <label>Date of Register</label>
+                <input class="search_icn" type="date" id="patientDOR" name="patientDOR">
             </div>
+            
+            <div class="patientRegister_div">
+                <label>Password</label>
+                <input class="search_icn" type="password" id="patientPassword" name="patientPassword">
+                <label>Confirm Password</label>
+                <input class="search_icn" type="password" id="patientConPassword" name="patientConPassword">
+            </div>
+
+        <button class="search_btn">Sign Up</button>
         </div>
-        <div class="footer">
-            <div id="detail">
-                <p>+94756784566</p>
-                <p>healthbridge@echannelling.com</p>
-                <p>HealthBridge PLC, No:108, W A D Ramanayaka Mawatha, Colombo2, SriLanka</p>
-            </div>
-            <div>
-                <h3>Other</h3>
-                <p>Tearms and Conditions</p>
-                <p>FAQ</p>
-                <p>Privacy Policy</p>
-            </div>
-            <div>
-                <h3>About</h3>
-                <p>The Company</p>
-                <p>Partners</p>
-                <p>Careers</p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
