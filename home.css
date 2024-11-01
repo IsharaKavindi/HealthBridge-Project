@@ -275,7 +275,6 @@
 }
 
 .docProfile3{
-  height: 500px;
   width:600px;
   text-align: center;
   margin-top: 50px;
@@ -330,4 +329,110 @@
   padding:0px 0px;
   margin:0px 0px 10px 0px;
   color:rgb(78, 76, 76)
+}
+
+/* payment Page */
+
+.payment_div{
+  margin:30px 130px;
+  background-color: 	rgb(224, 236, 243);
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 20px;
+}
+
+.payment{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:30px 30px;
+  
+}
+
+.bill_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: 	rgb(224, 236, 243);
+  border:none;
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 20px;
+  margin:0px 200px;
+  padding:30px 0px;
+}
+
+.bill{
+  display:flex;
+  align-items: center;
+}
+
+.bill1, .bill2{
+  margin:0px 40px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.pay_btn{
+  border: none;
+  color:white;
+  background-color: rgb(14, 77, 165) ;
+  border-radius: 30px;
+  font-size: 16px;
+  margin: 10px 10px;
+  padding:15px 30px;
+  margin-left: 50px;
+}
+
+/* slip upload page */
+
+.slip_div{
+  text-align: center;
+  height:400px;
+  width:800px;
+  box-shadow: 1px 1px 1px 1px grey;
+  background-color: white;
+  margin: 50px auto;
+  display: flex;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.slip1{
+  background-image: url(img/pay.jpeg);
+  height: 400px;
+  width: 300px;
+  background-repeat: none;
+  background-size: contain;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.slip2{
+  height: 400px;
+  width: 500px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.bankDeatails{
+  width: 400px;
+  border: 2px solid  rgb(14, 77, 165);
+  margin:5px auto;
+}
+
+.slipUpload{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin:20px 30px;
+}
+
+.upload{
+  height:20px;
+  width:180px;
+  padding:10px 0px ;
+  border:10px solid rgb(14, 77, 165);
+  background-color:  rgb(14, 77, 165) ;
+  color: white;
+  margin-bottom: 0px;
 }
