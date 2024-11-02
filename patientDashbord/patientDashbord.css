@@ -1,0 +1,174 @@
+.main_div{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    height: 100%;
+
+}
+
+.side_nav{
+    display: flex;
+    flex-direction: column;
+    padding:  10px;
+    
+}
+
+.side_btn, .side_btn1{
+    padding:12px 25px;
+    width:230px;
+    text-align: left;
+    box-shadow:  1px 1px 1px 1px grey;
+    border:none;
+    background-color: rgb(224, 236, 243);
+    font-weight: bold;
+    border-radius: 10px;
+    margin:4px 10px;
+}
+
+.side_btn1{
+    padding-left: 80px;
+}
+
+.side_nav{
+    height: 82vh;
+}
+
+.channelShedule{
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.channelShedule1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 10px;
+    margin-top: 0px;
+
+}
+
+.calander{
+    height: 300px;
+    background-color: antiquewhite;
+    width: 400px;
+}
+
+.docProfile3{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.channelStatus{
+    margin:30px 10px;
+    text-align: center;
+}
+
+.tbl{
+    border: 2px solid black;
+}
+
+/* Container styling */
+.channelStatus {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.channelStatus h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+.tbl {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.tbl th, .tbl td {
+    padding: 10px 35px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Header styling */
+.tbl th {
+    background-color:rgb(14, 77, 165) ;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tbl tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect */
+.tbl tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Status Badge Styling */
+.status {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status.approved {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.status.pending {
+    background-color: #FFC107;
+    color: #fff;
+}
+
+.status.declined {
+    background-color: #F44336;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .tbl, .tbl thead, .tbl tbody, .tbl th, .tbl td, .tbl tr {
+        display: block;
+        width: 100%;
+    }
+    
+    .tbl thead tr {
+        display: none;
+    }
+    
+    .tbl td {
+        padding: 10px;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+    }
+    
+    .tbl td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #666;
+    }
+    
+    .tbl tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+}
