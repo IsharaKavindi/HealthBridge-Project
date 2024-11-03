@@ -275,3 +275,53 @@
     size: 1px;
     margin:0px 8px;
 }
+
+.view_btn{
+    border:none;
+    padding:7px 15px;
+    background-color: rgb(224, 236, 243);
+    border-radius: 10px;
+    box-shadow: 0.5px 1px 1px 1px gray;
+}
+
+.add_btn{
+    background-color:  rgb(14, 77, 165);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin:10px 800px 10px 0px;
+    align-items: start;
+
+}
+
+.logindiv{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 130px 0px;
+    height: 500px;
+  }
+ 
+  .login1,.login2 {
+    text-align: center;
+    height:400px;
+    width:300px;
+    box-shadow: 1px 1px 1px 1px grey;
+    background-color: white;
+  }
+ 
+  .login1{
+    border-radius: 20px 0px 0px 20px;
+  }
+ 
+  .login2{
+    border-radius: 0px 20px 20px 0px;
+  }
+ 
+  .login_img{
+    height: 400px;
+    width:400px;
+ 
+  }
