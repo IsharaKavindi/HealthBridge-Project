@@ -217,3 +217,61 @@
     background-color: #4CAF50;
     color:white;
 }
+
+.contact_div{
+    background-image: url(/img/contact-us.avif);
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 100px 30px;
+    border-radius: 20px;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+}
+
+#detail{
+    margin: 100px 0px 0px 120px;
+}
+
+#facebook_icon{
+    color:rgb(12, 23, 226);
+    font-size: 30px; 
+    margin:2px 8px 0px 8px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#twitter_icon{
+    color:white;
+    background-color: rgb(30, 211, 243);
+    padding:6px 6px;
+    border:1px solid rgb(30, 211, 243);
+    border-radius: 20px;
+    font-weight: normal;
+    size: 1px;
+    margin:0px 8px;
+}
+
+#inster_icon{
+    color:white;
+    background-color: rgb(236, 14, 99);
+    padding:6px 7px;
+    border:1px solid rgb(236, 14, 99);
+    border-radius: 20px;
+    font-weight: normal;
+    size: 1px;
+    margin:0px 8px;
+}
+
+#youtube_icon{
+    color:white;
+    background-color: rgb(224, 13, 31);
+    padding:6px 6px;
+    border:1px solid rgb(224, 13, 31);
+    border-radius: 20px;
+    font-weight: normal;
+    size: 1px;
+    margin:0px 8px;
+}
