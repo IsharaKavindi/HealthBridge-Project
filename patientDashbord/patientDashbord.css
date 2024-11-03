@@ -1,3 +1,8 @@
+.body_div{
+    margin: 0px 50px;
+   
+}
+
 .main_div{
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -68,7 +73,7 @@
 
 /* Container styling */
 .channelStatus {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 20px auto;
     font-family: Arial, sans-serif;
     color: #333;
@@ -171,4 +176,44 @@
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+}
+
+.approvedMeaasage{
+    margin:50px 10px;
+    padding: 30px;
+    border: 2px solid  rgb(70, 143, 244);
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.message_box{
+    display: flex; 
+    height:300px;
+    margin:0px 200px;
+    border:none;
+    box-shadow:  1px 1px 1px 1px grey;
+    border-radius: 20px;
+
+}
+
+.username,.username1{
+    justify-self:flex-start;
+    align-self: self-start;
+    padding: 10px 25px;
+    margin: 0px 0px 6px 200px;
+    border-radius: 10px;
+    border: 1px solid rgb(70, 143, 244);
+}
+
+.username1{
+    margin-top: 80px;
+}
+
+.messageSend_btn{
+    padding:10px 15px;
+    margin: 5px 0px 5px 800px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color:white;
 }
