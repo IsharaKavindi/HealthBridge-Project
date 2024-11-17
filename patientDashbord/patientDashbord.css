@@ -223,6 +223,7 @@
     background-repeat: no-repeat;
     background-size:contain;
     margin: 100px 30px;
+    padding-bottom:100px;
     border-radius: 20px;
     color:white;
     display: flex;
@@ -320,4 +321,21 @@
     height: 500px;
     width:400px;
  
+  }
+
+  .patientdetail{
+    text-align: center;
+    height:500px;
+    width:1000px;
+    box-shadow: 1px 1px 1px 1px grey;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:20px;
+    margin-top:40px;
+    border-radius: 20px;
+  }
+
+  .profile{
+    display:flex;
   }

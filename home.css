@@ -215,8 +215,15 @@
   border-radius: 20px;
 }  
 
+.reg{
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  margin:30px 20px;
+}
 .patientRegister_div{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   padding:10px 30px;
