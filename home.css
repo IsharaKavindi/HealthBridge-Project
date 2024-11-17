@@ -445,3 +445,20 @@
   color: white;
   margin-bottom: 0px;
 }
+
+/* Manage Prescriptions */
+.managePrescription{
+  text-align: center;
+  margin:150px auto;
+  width:500px;
+  height:auto;
+  border:none;
+  box-shadow: 1px 1px 1px 1px gray;
+  padding:30px;
+  border-radius: 10px;
+
+}
+
+.input{
+  width:170px;
+}
