@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelthBridge</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
+</head>
+<body>
+    <div class="body_div">
+        <div class="nav">
+            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+            <h2 class="topic">Staff Dashboard</h2>
+            <button class="sign_upbtn">Log Out</button>
+        </div>
+        <div class="main_div">
+            <div class="side_nav">
+                <a><button class="side_btn" ><img class="img1"src="/img/profile_img.jpeg"></button></a>
+                <a href="staffProfile.html"><button class="side_btn">Staff Profile</button></a>
+                <a href="patientDetails.html"><button class="side_btn">Patient Details</button></a>
+                <a  href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
+                <a href="dactorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
+                <a href="doctorSchedules.html"><button class="side_btn">Doctor Schedules</button></a>
+                <a><button class="side_btn"> Massages</button></a>
+                <a href="patientMessage.html"><button class="side_btn1">Patients</button></a>
+                <a href="doctorMessage.html"><button class="side_btn1"> Doctor</button></a>
+                <a href="staffConference.html"><button class="side_btn">Conferense</button></a>
+                <a href="staffHelp.html"><button class="side_btn"> Help</button></a>
+            </div>
+            <div class="Message_div">
+                <div class="search_bar">
+                    <div class="search">
+                        <p class="search_txt" >Doctor Name</p>
+                        <input class="search_icn" type="name" placeholder="Search Doctor Name">
+                    </div>
+                    <div class="search">
+                        <p class="search_txt" >Specialization</p>
+                        <select class="search_icn"  aria-placeholder="ddddd">
+                            <option value="" disabled selected>Select Specialization</option>
+                            <option value="1">Eye Surgeon</option>
+                            <option value="2" >Cardiologist</option>
+                            <option value="3" >Dermatologist</option>
+                        </select>
+                    </div>
+                </div>
+                <input class="username" placeholder="Username" id="RegisterUsername" name="RegisterUsername">
+                <div class="message_box">
+
+                </div>
+                <button class="messageSend_btn">Send Message</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
