@@ -57,14 +57,16 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <a href="staffHelp.html"><button class="side_btn">Help</button></a>
             </div>
             <div class="doctordetail">
-                <form>
+                <form action="../adminDashboard/updateStaff.html" method="GET">
                     <div class="reg">
                         <div class="patientRegister_div">
-                            <label for="staffImage" class="upload-label">
-                                <img id="profilePreview" src="<?php echo $staffImage ? $staffImage  : '../img/profile_img.jpeg'; ?>" alt="Profile Preview">
-                            </label><br>
-                            <label>Profile Image:</label>
-                            <img id="profilePreview" src="../img/profile_img.jpeg" alt="Profile Preview"><br><br>
+                        <?php
+                            // Ensure $staffImage is set or has a fallback value
+                            $staffImage = $staffImage ?? '../img/profile_img.jpeg';
+                        ?>
+                        <label for="profileImage" class="upload-label">
+                             <img id="profilePreview" src="<?php echo $staffImage; ?>" alt="Profile Image">
+                        </label>
                             <label>Title:</label>
                             <label><?= htmlspecialchars($staffDetails['staffTitle']) ?></label><br>
                         </div>
@@ -94,7 +96,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         </div>
                         
                     </div>
-                    <input type="submit" name="submit" value="Edit Profile" class="search_btn">
+                    <input href="\adminDashboard\updateStaff.html" type="submit" name="submit" value="Edit Profile" class="search_btn">
                 </form>
             </div>
         </div>
