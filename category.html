@@ -9,17 +9,17 @@
 <body>
     <div>
         <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+            <img id="logo_img" src="img/logo.jpg" alt="HealthBridge_logo">
             <button class="sign_upbtn">Sign Up</button>
         </div>
         <div>
             <div class="search_category">
                 <h2 id="specialist_txt">Specializations</h2>
-                <select class="search_icn"  aria-placeholder="ddddd">
-                    <option value="" disabled selected>Select Specialization</option>
-                    <option value="1">Eye Surgeon</option>
-                    <option value="2" >Cardiologist</option>
-                    <option value="3" >Dermatologist</option>
+                <select class="search_icn" aria-placeholder="Select Specialization">
+                    <option value="All" selected>All Specializations</option>
+                    <option value="Eye Surgeon">Eye Surgeon</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
                 </select>
             </div>
             <div id="specialits_div">
@@ -30,28 +30,23 @@
                 </div>
                 <div class="Specialist">
                     <img class="img1" src="img/profile_img.jpeg">
-                    <h3 class="dr_name">Dr. Perera</h3>
+                    <h3 class="dr_name">Dr. Silva</h3>
+                    <p class="dr_special">Cardiologist</p>
+                </div>
+                <div class="Specialist">
+                    <img class="img1" src="img/profile_img.jpeg">
+                    <h3 class="dr_name">Dr. Fernando</h3>
+                    <p class="dr_special">Dermatologist</p>
+                </div>
+                <div class="Specialist">
+                    <img class="img1" src="img/profile_img.jpeg">
+                    <h3 class="dr_name">Dr. Wickramasinghe</h3>
                     <p class="dr_special">Eye Surgeon</p>
                 </div>
                 <div class="Specialist">
                     <img class="img1" src="img/profile_img.jpeg">
-                    <h3 class="dr_name">Dr. Perera</h3>
-                    <p class="dr_special">Eye Surgeon</p>
-                </div>
-                <div class="Specialist">
-                    <img class="img1" src="img/profile_img.jpeg">
-                    <h3 class="dr_name">Dr. Perera</h3>
-                    <p class="dr_special">Eye Surgeon</p>
-                </div>
-                <div class="Specialist">
-                    <img class="img1" src="img/profile_img.jpeg">
-                    <h3 class="dr_name">Dr. Perera</h3>
-                    <p class="dr_special">Eye Surgeon</p>
-                </div>
-                <div class="Specialist">
-                    <img class="img1" src="img/profile_img.jpeg">
-                    <h3 class="dr_name">Dr. Perera</h3>
-                    <p class="dr_special">Eye Surgeon</p>
+                    <h3 class="dr_name">Dr. Jayasuriya</h3>
+                    <p class="dr_special">Cardiologist</p>
                 </div>
             </div>
         </div>
@@ -63,7 +58,7 @@
             </div>
             <div>
                 <h3>Other</h3>
-                <p>Tearms and Conditions</p>
+                <p>Terms and Conditions</p>
                 <p>FAQ</p>
                 <p>Privacy Policy</p>
             </div>
@@ -75,5 +70,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const specializationSelect = document.querySelector(".search_icn");
+            const specialists = document.querySelectorAll(".Specialist");
+
+            specializationSelect.addEventListener("change", () => {
+                const selectedSpecialization = specializationSelect.value;
+
+                specialists.forEach(specialist => {
+                    const specialistCategory = specialist.querySelector(".dr_special").innerText;
+
+                    if (selectedSpecialization === "All" || specialistCategory.includes(selectedSpecialization)) {
+                        specialist.style.display = "block";
+                    } else {
+                        specialist.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -10,54 +10,47 @@
         <div class="patientRegister">
             <h2 id="register_text">Register Here</h2>
             <form>
-                <div class="patientRegister_div">
-                    <label for="profileImage" class="upload-label">
-                        <img id="profilePreview" src="img/profile_img.jpeg" alt="Profile Preview">
-                        <!-- <span>Upload Profile Image</span> -->
-                    </label>
-                    <input class="search_icn" type="file" id="registerImage" name="registerImage" accept="image/*">
-                    <label>Username</label>
-                    <input class="search_icn" type="text" id="registerUsername" name="registerUsername">
+                <div class="reg">
+                    <div class="patientRegister_div">
+                        <label for="profileImage" class="upload-label">
+                            <img id="profilePreview" src="img/profile_img.jpeg" alt="Profile Preview">
+                        </label>
+                        <input class="search_icn" type="image" id="registerImage" name="registerImage" accept="image/*"><br><br>
+                        <label>Title</label>
+                        <select class="search_icn" id="registerTitle" name="registerTitle">
+                            <option>Mr</option>
+                            <option>Ms</option>
+                            <option>Mrs</option>
+                        </select>
+                    </div>
+                    <div class="patientRegister_div">
+                        <label>First Name</label>
+                        <input class="search_icn" placeholder="First Name" id="registerFirstname" name="registerFirstname"><br>
+                        <label>Username</label>
+                        <input class="search_icn" type="text" id="registerUsername" name="registerUsername"><br>
+                        <label>NIC/Passport</label>
+                        <input class="search_icn" type="text" id="registerNIC" name="registerNIC"><br>
+                        <label>Email</label>
+                        <input class="search_icn" type="email" id="registerEmail" name="registerEmail"><br>
+                        <label>Password</label>
+                        <input class="search_icn" type="password" id="registerPassword" name="registerPassword">
+    
+                    </div>
+                    <div class="patientRegister_div">
+                        <label>Last Name</label>
+                        <input class="search_icn" placeholder="Last Name" id="registerLastname" name="registerLastname"><br>
+                        <label>Date of Birth</label>
+                        <input class="search_icn" type="date" id="registerDOB" name="registerDOB"><br>
+                        <label>Phone Number</label>
+                        <input class="search_icn" type="number" id="registerPhoneNo" name="registerPhoneNo"><br>
+                        <label>Date of Register</label>
+                        <input class="search_icn" type="date" id="registerDOR" name="registerDOR"><br>
+                        <label>Confirm Password</label>
+                        <input class="search_icn" type="password" id="registerConPassword" name="registerConPassword"><br>
+                    </div>
                 </div>
-                <div class="patientRegister_div">
-                    <label>Title</label>
-                    <select class="search_icn" id="registerTitle" name="registerTitle">
-                        <option>Mr</option>
-                        <option>Ms</option>
-                        <option>Mrs</option>
-                    </select>
-                    <label>First Name</label>
-                    <input class="search_icn" placeholder="First Name" id="registerFirstname" name="registerFirstname">
-                    <label>Last Name</label>
-                    <input class="search_icn" placeholder="Last Name" id="registerLastname" name="registerLastname">
-                </div>
-                <div class="patientRegister_div">
-                    <label>Email</label>
-                    <input class="search_icn" type="email" id="registerEmail" name="registerEmail">
-                    <label>Date of Birth</label>
-                    <input class="search_icn" type="date" id="registerDOB" name="registerDOB">
-                </div>
-                <div class="patientRegister_div">
-                    <label>NIC/Passport</label>
-                    <input class="search_icn" type="text" id="registerNIC" name="registerNIC">
-                    <label>Phone Number</label>
-                    <input class="search_icn" type="number" id="registerPhoneNo" name="registerPhoneNo">
-                </div>
-                <div class="patientRegister_div">
-                    <label>Address</label>
-                    <input class="search_icn" type="text" id="registerAddress" name="registerAddress">
-                    <label>Date of Register</label>
-                    <input class="search_icn" type="date" id="registerDOR" name="registerDOR">
-                </div>
-                <div class="patientRegister_div">
-                    <label>Password</label>
-                    <input class="search_icn" type="password" id="registerPassword" name="registerPassword">
-                    <label>Confirm Password</label>
-                    <input class="search_icn" type="password" id="registerConPassword" name="registerConPassword">
-                </div>
-                
 
-                <button class="search_btn">Sign Up</button>
+                <button class="search_btn" id="SignUp" name="SignUp">Sign Up</button>
             </form>
         </div>
 </body>

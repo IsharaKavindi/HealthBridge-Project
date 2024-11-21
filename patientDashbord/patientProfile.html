@@ -14,25 +14,66 @@
             <h2 class="topic">Welcome <span>Anura</span></h2>
             <button class="sign_upbtn">Log Up</button>
         </div>
-        <div class="patientDashbord">
-            <div class="side_nav">
-                <a href="patientProfile.html"><button class="side_btn">Profile</button></a>
-                <a><button class="side_btn" >Channelling</button></a>
-                <a  href="appointmentSheduling.html"><button class="side_btn1">Appointment sheduling</button></a>
-                <a href="channelStatus.html"><button class="side_btn1">Channel Status</button></a>
-                <a href="report.html"><button class="side_btn" > Reports</button></a>
-                <a href="prescriptions.html"><button class="side_btn"> Priscription</button></a>
-                <a href="payment.html"><button class="side_btn"> Payments</button></a>
-                <a><button class="side_btn"> Massages</button></a>
-                <a href="messageDoctor.html"><button class="side_btn1">Doctor</button></a>
-                <a href="messageStaff.html"><button class="side_btn1"> Staff</button></a>
-                <a href="conference.html"><button class="side_btn">Doctor Conferense</button></a>
-                <a href="contact.html"><button class="side_btn"> Contact us</button></a>
-            </div>
-            <div>
+        <div class="profile">
+                <div class="side_nav">
+                    <a href="patientProfile.html"><button class="side_btn">Profile</button></a>
+                    <a><button class="side_btn" >Channelling</button></a>
+                    <a  href="appointmentSheduling.html"><button class="side_btn1">Appointment sheduling</button></a>
+                    <a href="channelStatus.html"><button class="side_btn1">Channel Status</button></a>
+                    <a href="report.html"><button class="side_btn" > Reports</button></a>
+                    <a href="prescriptions.html"><button class="side_btn"> Priscription</button></a>
+                    <a href="payment.html"><button class="side_btn"> Payments</button></a>
+                    <a><button class="side_btn"> Massages</button></a>
+                    <a href="messageDoctor.html"><button class="side_btn1">Doctor</button></a>
+                    <a href="messageStaff.html"><button class="side_btn1"> Staff</button></a>
+                    <a href="conference.html"><button class="side_btn">Doctor Conferense</button></a>
+                    <a href="contact.html"><button class="side_btn"> Contact us</button></a>
+                </div>
+                
+            <div class="patientdetail">
+                <form>
+                    <div class="reg">
+                        <div class="patientRegister_div">
+                            <label for="profileImage" class="upload-label">
+                                <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
+                            </label>
+                            <input class="search_icn" type="file" id="registerImage" name="registerImage" accept="image/*"><br><br>
+                            <label>Title</label>
+                            <select class="search_icn" id="registerTitle" name="registerTitle">
+                                <option>Mr</option>
+                                <option>Ms</option>
+                                <option>Mrs</option>
+                            </select>
+                        </div>
+                        <div class="patientRegister_div">
+                            <label>First Name</label>
+                            <input class="search_icn" placeholder="First Name" id="registerFirstname" name="registerFirstname"><br>
+                            <label>Username</label>
+                            <input class="search_icn" type="text" id="registerUsername" name="registerUsername"><br>
+                            <label>NIC/Passport</label>
+                            <input class="search_icn" type="text" id="registerNIC" name="registerNIC"><br>
+                            <label>Email</label>
+                            <input class="search_icn" type="email" id="registerEmail" name="registerEmail"><br>
+    
+                        </div>
+                        <div class="patientRegister_div">
+                            <label>Last Name</label>
+                            <input class="search_icn" placeholder="Last Name" id="registerLastname" name="registerLastname"><br>
+                            <label>Date of Birth</label>
+                            <input class="search_icn" type="date" id="registerDOB" name="registerDOB"><br>
+                            <label>Phone Number</label>
+                            <input class="search_icn" type="number" id="registerPhoneNo" name="registerPhoneNo"><br>
+                            <label>Date of Register</label>
+                            <input class="search_icn" type="date" id="registerDOR" name="registerDOR"><br>
 
+                        </div>
+                    </div>
+    
+                    <button class="search_btn">Edit Profile</button>
+                </form>
             </div>
         </div>
+       
     </div>
 </body>
 </html>
