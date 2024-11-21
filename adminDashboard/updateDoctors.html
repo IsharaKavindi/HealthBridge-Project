@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBridge</title>
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+</head>
+<body>
+    <div class="doctordetail">
+        <h2>Update Doctors</h2>
+        <form action="updateDoctors.php" method="post" enctype="multipart/form-data">
+            <div class="reg">
+                <div class="patientRegister_div">
+                    <label for="profileImage" class="upload-label">
+                        <img id="profilePreview" src="../img/profile_img.jpeg" alt="Profile Preview">
+                    </label>
+                    <!-- <input type="hidden" id="doctorID" name="doctorID" value=" ///Unique doctorID "> -->
+                    <input class="search_icn" type="file" id="doctorImage" name="doctorImage" accept="image/*"><br><br>
+                    <label>Title</label>
+                    <select class="search_icn" id="doctorTitle" name="doctorTitle">
+                        <option>Mr</option>
+                        <option>Ms</option>
+                        <option>Mrs</option>
+                    </select><br><br>
+                    <lable>Password</lable>
+                    <input class="search_icn" type="password" id="doctorPassword" name="doctorPassword"><br><br><br>
+                </div>
+                <div class="patientRegister_div">
+                    <label>First Name</label>
+                    <input class="search_icn" placeholder="First Name" id="doctorFirstname" name="doctorFirstname"><br>
+                    <label>Username</label>
+                    <input class="search_icn" type="text" id="doctorUsername" name="doctorUsername"><br>
+                    <label>Working Address</label>
+                    <input class="search_icn" type="text" id="doctorAddress" name="doctorAddress"><br>
+                    <label>Qualifications</label>
+                    <input class="search_icn" type="text" id="doctorQualifications" name="doctorQualifications"><br>
+                    <label>Email</label>
+                    <input class="search_icn" type="email" id="doctorEmail" name="doctorEmail"><br>
+
+                </div>
+                <div class="patientRegister_div">
+                    <label>Last Name</label>
+                    <input class="search_icn" placeholder="Last Name" id="doctorLastname" name="doctorLastname"><br>
+                    <label>Specialization</label>
+                    <input class="search_icn" type="text" id="doctorSpecialization" name="doctorSpecialization"><br>
+                    <label>Experience</label>
+                    <input class="search_icn" type="text" id="doctorExperience" name="doctorExperience"><br>
+                    <label>Registration ID</label>
+                    <input class="search_icn" type="number" id="doctorID" name="doctorID"><br>
+                    <label>Phone Number</label>
+                    <input class="search_icn" type="number" id="doctorPhoneNo" name="doctorPhoneNo"><br>
+
+
+                </div>
+            </div>
+
+            <button type="submit" class="search_btn" name="update">Update</button>
+        </form>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

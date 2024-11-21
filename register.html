@@ -9,7 +9,7 @@
 <body class="register_body">
         <div class="patientRegister">
             <h2 id="register_text">Register Here</h2>
-            <form>
+            <form action="register.php" method="post">
                 <div class="reg">
                     <div class="patientRegister_div">
                         <label for="profileImage" class="upload-label">
@@ -49,8 +49,9 @@
                         <input class="search_icn" type="password" id="registerConPassword" name="registerConPassword"><br>
                     </div>
                 </div>
+                <input type="submit" value="Register now" name="submit" class="search_btn">
 
-                <button class="search_btn">Sign Up</button>
+                <!-- <button class="search_btn" id="SingUp" name="SingUP">Sign Up</button> -->
             </form>
         </div>
 </body>
