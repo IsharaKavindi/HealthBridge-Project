@@ -95,12 +95,12 @@ mysqli_close($conn);
                             <input class="search_icn" type="text" name="staffFirstName" value="<?php echo htmlspecialchars($staffFirstName); ?>"><br>
                             <label>Last Name</label>
                             <input class="search_icn" type="text" name="staffLastName" value="<?php echo htmlspecialchars($staffLastName); ?>"><br>
+                            <label>Username</label>
+                            <input class="search_icn" type="text" name="staffUsername" value="<?php echo htmlspecialchars($staffUsername); ?>"><br>
                             <label>Address</label>
                             <input class="search_icn" type="text" name="staffAddress" value="<?php echo htmlspecialchars($staffAddress); ?>"><br>
                             <label>Email</label>
                             <input class="search_icn" type="email" name="staffEmail" value="<?php echo htmlspecialchars($staffEmail); ?>"><br>
-                            <label>Phone Number</label>
-                            <input class="search_icn" type="number" name="staffPhoneNo" value="<?php echo htmlspecialchars($staffPhoneNo); ?>"><br>
                         </div>
                         <div class="patientRegister_div">
                             <label>Registration ID</label>
@@ -111,6 +111,8 @@ mysqli_close($conn);
                             <input class="search_icn" type="text" name="staffQualifications" value="<?php echo htmlspecialchars($staffQualifications); ?>"><br>
                             <label>Experience</label>
                             <input class="search_icn" type="text" name="staffExperience" value="<?php echo htmlspecialchars($staffExperience); ?>"><br>
+                            <label>Phone Number</label>
+                            <input class="search_icn" type="number" name="staffPhoneNo" value="<?php echo htmlspecialchars($staffPhoneNo); ?>"><br>
                         </div>
                     </div>
                     <button type="submit" class="search_btn">Update Profile</button>
