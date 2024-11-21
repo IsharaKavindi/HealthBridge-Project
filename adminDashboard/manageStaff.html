@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge</title>
-    <link rel="stylesheet" href="/home.css">
-    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="body_div">
         <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+            <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
             <h2 class="topic">Admin Dashboard</h2>
             <button class="sign_upbtn">Log Out</button>
         </div>
@@ -27,6 +27,7 @@
                 <div class="channelStatus">
                     <h2>Manage Staff</h2>
                     <a><button class="add_btn">Add</button></a>
+                    <form action="manageStaff.php" method="post">
                     <table class="tbl">
                         <thead>
                             <tr>
@@ -40,26 +41,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td data-label="Doctor ID">01</td>
-                                <td data-label="Username">Saman123</td>
-                                <td data-label="Name">Saman</td>
-                                <td data-label="Specialization">Dermotologist</td>
-                                <td data-label="Email">saman123@gmail.com</td>
-                                <td data-label="Phone NO">0771234567</td>
-                                <td data-label="update" class="status"><button class="search_btn">Update</button><button class="search_btn">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td data-label="Doctor ID">02</td>
-                                <td data-label="Username">Saman123</td>
-                                <td data-label="Name">Saman</td>
-                                <td data-label="Specialization">Dermotologist</td>
-                                <td data-label="Email">saman123@gmail.com</td>
-                                <td data-label="Phone NO">0771234567</td>
-                                <td data-label="update" class="status"><button class="search_btn">Update</button><button class="search_btn">Delete</button></td>
-                            </tr>
+
                         </tbody>
                     </table>
+                </form>
                 </div>
         </div>
     </div>

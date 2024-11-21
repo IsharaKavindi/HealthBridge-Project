@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge</title>
-    <link rel="stylesheet" href="/home.css">
-    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="doctordetail">
         <h2>Add Staff</h2>
-        <form>
+        <form action="addStaff.php" method="post">
             <div class="reg">
                 <div class="patientRegister_div">
                     <label for="profileImage" class="upload-label">
-                        <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
+                        <img id="profilePreview" src="../img/profile_img.jpeg" alt="Profile Preview">
                     </label>
                     <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
                     <label>Title</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="patientRegister_div">
                     <label>First Name</label>
-                    <input class="search_icn" placeholder="First Name" id="staffFirstname" name="staffFirstname"><br>
+                    <input class="search_icn" placeholder="First Name" id="staffFirstName" name="staffFirstName"><br>
                     <label>Username</label>
                     <input class="search_icn" type="text" id="staffUsername" name="staffUsername"><br>
                     <label>Working Address</label>
@@ -41,21 +41,20 @@
                 </div>
                 <div class="patientRegister_div">
                     <label>Last Name</label>
-                    <input class="search_icn" placeholder="Last Name" id="staffLastname" name="staffLastname"><br>
+                    <input class="search_icn" placeholder="Last Name" id="staffLastName" name="staffLastName"><br>
                     <label>Specialization</label>
                     <input class="search_icn" type="text" id="staffSpecialization" name="staffSpecialization"><br>
                     <label>Experience</label>
                     <input class="search_icn" type="text" id="staffExperience" name="staffExperience"><br>
                     <label>Registration ID</label>
-                    <input class="search_icn" type="number" id="staffID" name="staffID"><br>
+                    <input class="search_icn" type="number" id="staffRegistrationID" name="staffRegistrationID"><br>
                     <label>Phone Number</label>
                     <input class="search_icn" type="number" id="staffPhoneNo" name="staffPhoneNo"><br>
 
 
                 </div>
             </div>
-
-            <button class="search_btn">Add</button>
+            <input type="submit" name="submit" value="Add" class="search_btn">
         </form>
     </div>
 </body>
