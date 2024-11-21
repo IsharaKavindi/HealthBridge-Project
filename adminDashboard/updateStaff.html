@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge</title>
-    <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="doctordetail">
+<<<<<<< HEAD
         <h2>Edit Profile</h2>
         <form action="updateStaff.php" method="post">
             <div class="reg">
                 <div class="patientRegister_div">
+=======
+        <h2>Update Staff</h2>
+        <form>
+            <div class="reg">
+                <div class="patientRegister_div">
+                    <label for="profileImage" class="upload-label">
+                        <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
+                    </label>
+>>>>>>> a8deb9d1c3f209384a07b0493c7b71fa7857d3af
                     <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
                     <label>Title</label>
                     <select class="search_icn" id="staffTitle" name="staffTitle">
@@ -49,7 +59,8 @@
                     <input class="search_icn" type="number" id="staffPhoneNo" name="staffPhoneNo"><br>
                </div>
             </div>
-            <input type="submit" name="submit" value="Update" class="search_btn">
+
+            <button class="search_btn">Update</button>
         </form>
     </div>
     <script>
