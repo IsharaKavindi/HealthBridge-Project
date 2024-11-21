@@ -11,7 +11,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-if (isset($_POST['submit'])) {
+if (isset($_POST['SignUp'])) {
 
   $registerImage = $_POST['registerImage'];
   $registerTitle = $_POST['registerTitle'];
@@ -42,12 +42,8 @@ if (isset($_POST['submit'])) {
       registerEmail,registerDOB,registerPhoneNo,registerDOR,registerPassword)
        VALUES('$registerImage','$registerTitle','$registerFirstname','$registerLastname','$registerUsername','$registerNIC',
        '$registerEmail','$registerDOB','$registerPhoneNo','$registerDOR','$registerPassword') ";
-       
-       if (mysqli_query($conn, $insert)) {
-        echo "<script>alert('Your registation sucssesfuli'); window.location.href = 'login.html';</script>";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-           }
+      mysqli_query($conn, $insert);
+      header("Location:login.html");
 
       exit();
     }

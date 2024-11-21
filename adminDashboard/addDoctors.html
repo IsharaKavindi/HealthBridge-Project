@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthBridge</title>
-    <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="doctordetail">
         <h2>Add Doctors</h2>
-        <form action="addDoctor.php" method="post">
+        <form>
             <div class="reg">
                 <div class="patientRegister_div">
                     <label for="profileImage" class="upload-label">
-                        <img id="profilePreview" src="../img/profile_img.jpeg" alt="Profile Preview">
+                        <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
                     </label>
                     <input class="search_icn" type="file" id="doctorImage" name="doctorImage" accept="image/*"><br><br>
                     <label>Title</label>
@@ -54,8 +54,9 @@
 
                 </div>
             </div>
-            <input type="submit" value="ADD" name="submit" class="search_btn">
-        </form>   
+
+            <button class="search_btn">Add</button>
+        </form>
     </div>
 </div>
 
