@@ -1,123 +1,122 @@
 <?php
-// Database connection
+session_start();
+
+// Check if the staff is logged in
+if (!isset($_SESSION['staffUsername'])) {
+    echo "<script>alert('Please log in first.'); window.location.href = 'staffLogin.html';</script>";
+    exit();
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-define('SITEURL', 'http://localhost/GitHub/HealthBridge-Project/');
+// Database connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Start the session to retrieve logged-in staff information
-session_start();
+$staffUsername = $_SESSION['staffUsername'];
 
-$staffUsername = $_SESSION['staffUsername']; // Assuming username is stored in session after login
-$staffDetails = [];
+// Fetch staff details
+$query = "SELECT * FROM staff WHERE staffUsername = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "s", $staffUsername);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-// Fetch staff details from the database
-$sql = "SELECT * FROM staff WHERE staffUsername = '$staffUsername'";
-$result = mysqli_query($conn, $sql);
-if ($result && mysqli_num_rows($result) > 0) {
-    $staffDetails = mysqli_fetch_assoc($result);
+if ($row = mysqli_fetch_assoc($result)) {
+    $staffImage = $row['staffImage'] ?: '/img/profile_img.jpeg';
+    $staffTitle = $row['staffTitle'];
+    $staffFirstName = $row['staffFirstName'];
+    $staffLastName = $row['staffLastName'];
+    $staffAddress = $row['staffAddress'];
+    $staffQualifications = $row['staffQualifications'];
+    $staffRegistrationID = $row['staffRegistrationID'];
+    $staffSpecialization = $row['staffSpecialization'];
+    $staffExperience = $row['staffExperience'];
+    $staffEmail = $row['staffEmail'];
+    $staffPhoneNo = $row['staffPhoneNo'];
 } else {
-    echo "No staff details found.";
+    echo "<script>alert('Staff not found.'); window.location.href = 'staffLogin.html';</script>";
+    exit();
 }
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthBridge</title>
+    <title>Staff Profile</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
-<div class="body_div">
+    <div class="body_div">
         <div class="nav">
             <img id="logo_img" src="../img/logo.jpg" alt="HealthBridge_logo">
             <h2 class="topic">Staff Dashboard</h2>
-            <button class="sign_upbtn">Log Out</button>
+            <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
         </div>
-        <div class="main_div">
+        <div class="profile">
             <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="../img/profile_img.jpeg"></button></a>
-                <a href="staffProfile.html"><button class="side_btn">Staff Profile</button></a>
-                <a href="patientDetails.html"><button class="side_btn">Patient Details</button></a>
-                <a href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
-                <a href="doctorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
-                <a href="doctorSchedules.html"><button class="side_btn">Doctor Schedules</button></a>
-                <a><button class="side_btn">Messages</button></a>
-                <a href="patientMessage.html"><button class="side_btn1">Patients</button></a>
-                <a href="doctorMessage.html"><button class="side_btn1">Doctor</button></a>
-                <a href="staffConference.html"><button class="side_btn">Conference</button></a>
-                <a href="staffHelp.html"><button class="side_btn">Help</button></a>
+                <a><button class="side_btn"><img class="img1" src="<?php echo $staffImage; ?>"></button></a>
+                <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
+                <a href="appointments.html"><button class="side_btn">Appointments</button></a>
+                <a href="schedules.html"><button class="side_btn">Schedules</button></a>
+                <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="reports.html"><button class="side_btn">Reports</button></a>
+                <a href="messages.html"><button class="side_btn">Messages</button></a>
+                <a href="help.html"><button class="side_btn">Help</button></a>
             </div>
+            
             <div class="doctordetail">
-                <form action="../adminDashboard/updateStaff.html" method="GET">
+                <form action="updateStaffProfile.php" method="POST" enctype="multipart/form-data">
                     <div class="reg">
                         <div class="patientRegister_div">
-                        <?php
-                            // Ensure $staffImage is set or has a fallback value
-                            $staffImage = $staffImage ?? '../img/profile_img.jpeg';
-                        ?>
-                        <label for="profileImage" class="upload-label">
-                             <img id="profilePreview" src="<?php echo $staffImage; ?>" alt="Profile Image">
-                        </label>
-                            <label>Title:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffTitle']) ?></label><br>
+                            <label for="profileImage" class="upload-label">
+                                <img id="profilePreview" src="<?php echo $staffImage; ?>" alt="Profile Image">
+                            </label>
+                            <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
+                            <label>Title</label>
+                            <select class="search_icn" id="staffTitle" name="staffTitle">
+                                <option <?php if ($staffTitle == 'Mr') echo 'selected'; ?>>Mr</option>
+                                <option <?php if ($staffTitle == 'Ms') echo 'selected'; ?>>Ms</option>
+                                <option <?php if ($staffTitle == 'Mrs') echo 'selected'; ?>>Mrs</option>
+                            </select>
                         </div>
                         <div class="patientRegister_div">
-                            <label>First Name:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffFirstName']) ?></label><br><br>
-                            <label>Last Name:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffLastName']) ?></label><br><br>
-                            <label>Username:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffUsername']) ?></label><br><br>
-                            <label>Address:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffAddress']) ?></label><br><br>
-                            <label>Qualifications:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffQualifications']) ?></label><br><br>
+                            <label>First Name</label>
+                            <input class="search_icn" type="text" name="staffFirstName" value="<?php echo htmlspecialchars($staffFirstName); ?>"><br>
+                            <label>Last Name</label>
+                            <input class="search_icn" type="text" name="staffLastName" value="<?php echo htmlspecialchars($staffLastName); ?>"><br>
+                            <label>Address</label>
+                            <input class="search_icn" type="text" name="staffAddress" value="<?php echo htmlspecialchars($staffAddress); ?>"><br>
+                            <label>Email</label>
+                            <input class="search_icn" type="email" name="staffEmail" value="<?php echo htmlspecialchars($staffEmail); ?>"><br>
+                            <label>Phone Number</label>
+                            <input class="search_icn" type="number" name="staffPhoneNo" value="<?php echo htmlspecialchars($staffPhoneNo); ?>"><br>
                         </div>
                         <div class="patientRegister_div">
-                            <label>Email:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffEmail']) ?></label><br><br>
-                            <label>Specialization:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffSpecialization']) ?></label><br><br>
-                            <label>Experience:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffExperience']) ?> years</label><br><br>
-                            <label>Registration ID:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffRegistrationID']) ?></label><br><br>
-                            <label>Phone Number:</label>
-                            <label><?= htmlspecialchars($staffDetails['staffPhoneNo']) ?></label><br>
+                            <label>Registration ID</label>
+                            <input class="search_icn" type="number" id="staffRegistrationID" name="staffRegistrationID" value="<?php echo htmlspecialchars($staffRegistrationID); ?>"><br>
+                            <label>Specialization</label>
+                            <input class="search_icn" type="text" name="staffSpecialization" value="<?php echo htmlspecialchars($staffSpecialization); ?>"><br>
+                            <label>Qualifications</label>
+                            <input class="search_icn" type="text" name="staffQualifications" value="<?php echo htmlspecialchars($staffQualifications); ?>"><br>
+                            <label>Experience</label>
+                            <input class="search_icn" type="text" name="staffExperience" value="<?php echo htmlspecialchars($staffExperience); ?>"><br>
                         </div>
-                        
                     </div>
-                    <input href="\adminDashboard\updateStaff.html" type="submit" name="submit" value="Edit Profile" class="search_btn">
+                    <button type="submit" class="search_btn">Update Profile</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <script>
-        // JavaScript function to preview the uploaded image
-        function previewImage(event) {
-            const input = event.target;
-            const reader = new FileReader();
-
-            reader.onload = function() {
-                const preview = document.getElementById('profilePreview');
-                preview.src = reader.result;
-            };
-
-            if (input.files && input.files[0]) {
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-    
 </body>
 </html>
