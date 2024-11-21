@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelthBridge</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
+</head>
+<body>
+    <div class="body_div">
+        <div class="nav">
+            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+            <h2 class="topic">Doctor Dashboard</h2>
+            <button class="sign_upbtn">Log Up</button>
+        </div>
+        <div class="profile">
+            <div class="side_nav">
+                <a><button class="side_btn" ><img class="img1"src="/img/profile_img.jpeg"></button></a>
+                <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
+                <a  href="appointments.html"><button class="side_btn">Appointments</button></a>
+                <a href="shedules.html"><button class="side_btn">Shedules</button></a>
+                <a href="managePrescriptions.html"><button class="side_btn">Manage Priscriptions</button></a>
+                <a href="reports.html"><button class="side_btn" > Reports</button></a>
+                <a><button class="side_btn"> Massages</button></a>
+                <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
+                <a href="messageStaff.html"><button class="side_btn1"> Staff</button></a>
+                <a href="conference.html"><button class="side_btn">Conferense</button></a>
+                <a href="help.html"><button class="side_btn"> Help</button></a>
+            </div>
+                
+            <div class="doctordetail">
+                <form>
+                    <div class="reg">
+                        <div class="patientRegister_div">
+                            <label for="profileImage" class="upload-label">
+                                <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
+                            </label>
+                            <input class="search_icn" type="file" id="doctorImage" name="doctorImage" accept="image/*"><br><br>
+                            <label>Title</label>
+                            <select class="search_icn" id="doctorTitle" name="doctorTitle">
+                                <option>Mr</option>
+                                <option>Ms</option>
+                                <option>Mrs</option>
+                            </select>
+                        </div>
+                        <div class="patientRegister_div">
+                            <label>First Name</label>
+                            <input class="search_icn" placeholder="First Name" id="doctorFirstname" name="doctorFirstname"><br>
+                            <label>Username</label>
+                            <input class="search_icn" type="text" id="doctorUsername" name="doctorUsername"><br>
+                            <label>Working Address</label>
+                            <input class="search_icn" type="text" id="doctorAddress" name="doctorAddress"><br>
+                            <label>Qualifications</label>
+                            <input class="search_icn" type="text" id="doctorQualifications" name="doctorQualifications"><br>
+                            <label>Email</label>
+                            <input class="search_icn" type="email" id="doctorEmail" name="doctorEmail"><br>
+    
+                        </div>
+                        <div class="patientRegister_div">
+                            <label>Last Name</label>
+                            <input class="search_icn" placeholder="Last Name" id="doctorLastname" name="doctorLastname"><br>
+                            <label>Specialization</label>
+                            <input class="search_icn" type="text" id="doctorSpecialization" name="doctorSpecialization"><br>
+                            <label>Experience</label>
+                            <input class="search_icn" type="text" id="doctorExperience" name="doctorExperience"><br>
+                            <label>Registration ID</label>
+                            <input class="search_icn" type="number" id="doctorID" name="doctorID"><br>
+                            <label>Phone Number</label>
+                            <input class="search_icn" type="number" id="doctorPhoneNo" name="doctorPhoneNo"><br>
+
+
+                        </div>
+                    </div>
+    
+                    <button class="search_btn">Edit Profile</button>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
