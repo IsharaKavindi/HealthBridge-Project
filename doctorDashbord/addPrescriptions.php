@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     )";
 
     if (mysqli_query($conn, $insert)) {
-        echo "<script>alert('Prescription added successfully'); window.location.href = 'managePrescriptions.php';</script>";
+        echo "<script>alert('Prescription added successfully'); window.location.href = 'managePrescriptions.html';</script>";
     } else {
         // Detailed error output
         echo "Error: " . $insert . "<br>" . mysqli_error($conn);
