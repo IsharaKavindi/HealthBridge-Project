@@ -6,6 +6,38 @@
     <title>HealthBridge</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        
+        .logindiv{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        padding: 130px 0px;
+        }
+
+        .login1,.login2 {
+        text-align: center;
+        height:400px;
+        width:300px;
+        box-shadow: 1px 1px 1px 1px grey;
+        background-color: white;
+        }
+
+        .login1{
+        border-radius: 20px 0px 0px 20px;
+        }
+
+        .login2{
+        border-radius: 0px 20px 20px 0px;
+        }
+
+        .login_img{
+        height: 400px;
+        width:400px;
+
+        }
+
+    </style>
 </head>
 <body>
     <div class="logindiv">
@@ -13,8 +45,8 @@
             <img class="login_img" src="../img/login_img.jpg">
         </div>
         <div class="login2">
-            <form action="doctorLogin.php" method="post">
             <h2 id="login_topic">Doctor Login</h2>
+        <form action="doctorLogin.php" method="post">
             <P class="login_txt">Username</P>
             <input class="search_icn" type="" id="doctorUsername" name="doctorUsername">
             <p class="login_txt">Password</p>
