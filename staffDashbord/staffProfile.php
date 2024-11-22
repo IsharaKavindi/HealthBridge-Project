@@ -84,7 +84,7 @@ mysqli_close($conn);
                                 if ($staffImage != "") {
                                     // Display the image
                                     ?>
-                                    <img class="img" src="./img/<?php echo $staffImage; ?>" alt="<?php echo $staffImage; ?>">
+                                    <img class="img" src="<?php echo $staffImage; ?>" alt="<?php echo $staffImage; ?>">
                                     <?php
                                 } else {
                                     echo "<div class='error'>Image not available.</div>";

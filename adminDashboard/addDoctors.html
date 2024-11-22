@@ -10,7 +10,7 @@
 <body>
     <div class="doctordetail">
         <h2>Add Doctors</h2>
-        <form>
+        <form action="addDoctor.php" method="post">
             <div class="reg">
                 <div class="patientRegister_div">
                     <label for="profileImage" class="upload-label">
@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <button class="search_btn">Add</button>
+            <input type="submit" name="submit" value="Add" class="search_btn">
         </form>
     </div>
 </div>
