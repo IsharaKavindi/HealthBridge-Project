@@ -28,7 +28,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($row = mysqli_fetch_assoc($result)) {
-    $staffImage = $row['staffImage'] ?: '/img/profile_img.jpeg';
+    $staffImage = $row['staffImage'] ?: 
     $staffTitle = $row['staffTitle'];
     $staffFirstName = $row['staffFirstName'];
     $staffLastName = $row['staffLastName'];
@@ -80,7 +80,16 @@ mysqli_close($conn);
                     <div class="reg">
                         <div class="patientRegister_div">
                             <label for="profileImage" class="upload-label">
-                                <img id="profilePreview" src="<?php echo $staffImage; ?>" alt="Profile Image">
+                            <?php
+                                if ($image != "") {
+                                    // Display the image
+                                    ?>
+                                    <img class="img" src="img/<?php echo $staffImage; ?>" alt="<?php echo $$staffImage; ?>">
+                                    <?php
+                                } else {
+                                    echo "<div class='error'>Image not available.</div>";
+                                }
+                                ?>
                             </label>
                             <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
                             <label>Title</label>
