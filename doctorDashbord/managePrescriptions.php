@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
                 <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
                 <a href="appointments.html"><button class="side_btn">Appointments</button></a>
                 <a href="shedules.html"><button class="side_btn">Schedules</button></a>
-                <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
                 <a href="reports.html"><button class="side_btn">Reports</button></a>
                 <a><button class="side_btn">Messages</button></a>
                 <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
@@ -85,8 +85,10 @@ $result = mysqli_query($conn, $sql);
                         <button class='view_btn'>View</button>
                     </a>
                 </td>
-                <td data-label='Update' class='status'>
-                    <button class='search_btn'>Update</button>
+               <td data-label='Update' class='status'>
+                    <a href='updatePrescription.php?id={$row['AppointmentID']}'>
+                        <button class='search_btn'>Update</button>
+                    </a>
                 </td>
             </tr>";
         }
