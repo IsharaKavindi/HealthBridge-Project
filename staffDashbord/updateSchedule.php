@@ -68,12 +68,6 @@ $conn->close();
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
-    <div class="body_div">
-        <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
-            <h2 class="topic">Update Schedule</h2>
-        </div>
-        <div class="main_div">
             <form action="updateSchedule.php?id=<?php echo $scheduleID; ?>" method="POST">
                 <div class="managePrescription">
                     <h1>Edit Schedule</h1>
@@ -107,7 +101,5 @@ $conn->close();
                     <button class="search_btn" type="submit">Update</button>
                 </div>
             </form>
-        </div>
-    </div>
 </body>
 </html>
