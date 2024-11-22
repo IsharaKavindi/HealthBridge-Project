@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthBridge</title>
-    <link rel="stylesheet" href="/home.css">
-    <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="doctordetail">
         <h2>Add Doctors</h2>
-        <form>
+        <form action="addDoctor.php" method="post">
             <div class="reg">
                 <div class="patientRegister_div">
                     <label for="profileImage" class="upload-label">
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <button class="search_btn">Add</button>
+            <input type="submit" name="submit" value="Add" class="search_btn">
         </form>
     </div>
 </div>
