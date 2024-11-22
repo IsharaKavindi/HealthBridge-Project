@@ -28,7 +28,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($row = mysqli_fetch_assoc($result)) {
-    $staffImage = $row['staffImage'] ?: '/img/profile_img.jpeg';
+    $staffImage = $row['staffImage'] ?: 
     $staffTitle = $row['staffTitle'];
     $staffFirstName = $row['staffFirstName'];
     $staffLastName = $row['staffLastName'];
@@ -80,16 +80,30 @@ mysqli_close($conn);
                     <div class="reg">
                         <div class="patientRegister_div">
                             <label for="profileImage" class="upload-label">
-                                <img id="profilePreview" src="<?php echo $staffImage; ?>" alt="Profile Image">
+                            <?php
+                                if ($staffImage != "") {
+                                    // Display the image
+                                    ?>
+                                    <img class="img" src="./img/<?php echo $staffImage; ?>" alt="<?php echo $staffImage; ?>">
+                                    <?php
+                                } else {
+                                    echo "<div class='error'>Image not available.</div>";
+                                }
+                                ?>
                             </label>
                             <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
                             <label>Title</label>
+                            <?php
+                            // Ensure $staffTitle is initialized
+                            $staffTitle = isset($staffTitle) ? $staffTitle : ''; // Replace with database or form value if applicable
+                            ?>
                             <select class="search_icn" id="staffTitle" name="staffTitle">
                                 <option <?php if ($staffTitle == 'Mr') echo 'selected'; ?>>Mr</option>
                                 <option <?php if ($staffTitle == 'Ms') echo 'selected'; ?>>Ms</option>
                                 <option <?php if ($staffTitle == 'Mrs') echo 'selected'; ?>>Mrs</option>
                             </select>
-                        </div>
+
+                            </div>
                         <div class="patientRegister_div">
                             <label>First Name</label>
                             <input class="search_icn" type="text" name="staffFirstName" value="<?php echo htmlspecialchars($staffFirstName); ?>"><br>
