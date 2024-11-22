@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $select);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<script>alert('Doctor already exists'); window.location.href = 'addDoctors.html';</script>";
+        echo "<script>alert('Doctor alreay exists'); window.location.href = 'addDoctors.html';</script>";
         exit();
     } else {
 
@@ -49,7 +49,9 @@ if (isset($_POST['submit'])) {
             echo "<script>alert('Doctor added successfully'); window.location.href = 'manageDoctors.php';</script>";
         } else {
             echo "Error: " . mysqli_error($conn);
+
         }
+        
     }
 }
 
