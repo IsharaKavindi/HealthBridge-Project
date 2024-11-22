@@ -14,6 +14,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+include 'dbConnection.php';
+
 if (isset($_POST['submit'])) {
     $appointmentID = $_POST['appointmentNo'];
     $appointmentDateTime = $_POST['appointmentDateTime'];
@@ -35,7 +37,7 @@ if (isset($_POST['submit'])) {
     )";
 
     if (mysqli_query($conn, $insert)) {
-        echo "<script>alert('Prescription added successfully'); window.location.href = 'managePrescriptions.html';</script>";
+        echo "<script>alert('Prescription added successfully'); window.location.href = 'managePrescriptions.php';</script>";
     } else {
         // Detailed error output
         echo "Error: " . $insert . "<br>" . mysqli_error($conn);
