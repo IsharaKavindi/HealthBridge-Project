@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['doctorUsername'] = $doctor['doctorUsername'];
             $_SESSION['doctorFirstname'] = $doctor['doctorFirstname'];
             $_SESSION['doctorLastname'] = $doctor['doctorLastname'];
+            $_SESSION['doctorID'] = $doctor['doctorID'];
 
             // Redirect to doctor dashboard
             echo "<script>alert('Login successful'); window.location.href = 'doctorProfile.php';</script>";

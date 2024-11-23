@@ -1,30 +1,30 @@
 <?php
 session_start();
 
+$doctorID = intval($_SESSION['doctorID']); 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if (!isset($_SESSION['doctorID']) || empty($_SESSION['doctorID'])) {
-    echo "<script>alert('You must log in to view schedules.'); window.location.href = 'doctorLogin.html';</script>";
-    exit; 
+$sql = "SELECT ScheduleID, ScheduleDate, ScheduleTime, Status FROM Schedules WHERE DoctorID = ?";
+$stmt = $conn->prepare($sql);
+if ($stmt) {
+    $stmt->bind_param("i", $doctorID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    die("Error preparing statement: " . $conn->error);
 }
 
-$doctorID = $_SESSION['doctorID'];
-
-$result = $conn->query("SELECT ScheduleID, ScheduleDate, ScheduleTime, Status FROM Schedules WHERE DoctorID = $doctorID");
-
-if (!$result) {
-    die("Error fetching schedules: " . $conn->error);
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,23 +43,24 @@ if (!$result) {
         </div>
         <div class="main_div">
             <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+            <a><button class="side_btn" ><img class="img1"src="/img/profile_img.jpeg"></button></a>
                 <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
-                <a href="appointments.html"><button class="side_btn">Appointments</button></a>
-                <a href="schedules.php"><button class="side_btn">Schedules</button></a>
-                <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
-                <a href="reports.html"><button class="side_btn">Reports</button></a>
-                <a><button class="side_btn">Messages</button></a>
+                <a  href="appointments.html"><button class="side_btn">Appointments</button></a>
+                <a href="shedules.php"><button class="side_btn">Shedules</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Priscriptions</button></a>
+                <a href="reports.html"><button class="side_btn" > Reports</button></a>
+                <a><button class="side_btn"> Massages</button></a>
                 <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
-                <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
-                <a href="conference.html"><button class="side_btn">Conference</button></a>
-                <a href="help.html"><button class="side_btn">Help</button></a>
+                <a href="messageStaff.html"><button class="side_btn1"> Staff</button></a>
+                <a href="conference.html"><button class="side_btn">Conferense</button></a>
+                <a href="help.html"><button class="side_btn"> Help</button></a>
             </div>
             <div class="channelStatus">
                 <h2>Schedules</h2>
                 <table class="tbl">
                     <thead>
                         <tr>
+                            <th>Schedule ID</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th>Status</th>
@@ -67,22 +68,27 @@ if (!$result) {
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>
-                                    <td data-label='Date'>{$row['ScheduleDate']}</td>
-                                    <td data-label='Time'>{$row['ScheduleTime']}</td>
-                                    <td data-label='Status'>{$row['Status']}</td>
-                                    <td data-label='Action'>
-                                        <form action='updateScheduleStatus.php' method='POST'>
-                                            <input type='hidden' name='scheduleID' value='{$row['ScheduleID']}'>
-                                            <button class='search_btn' type='submit' name='status' value='Approved'>Approve</button>
-                                            <button class='search_btn' type='submit' name='status' value='Cancelled'>Cancel</button>
-                                        </form>
-                                    </td>
-                                </tr>";
-                        }
-                        ?>
+<?php
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td data-label='Schedule ID'>" . htmlspecialchars($row['ScheduleID']) . "</td>
+                <td data-label='Date'>" . date('d M Y', strtotime($row['ScheduleDate'])) . "</td>
+                <td data-label='Time'>" . date('h:i A', strtotime($row['ScheduleTime'])) . "</td>
+                <td data-label='Status'>" . htmlspecialchars($row['Status']) . "</td>
+                <td data-label='Action'>
+                    <form action='updateScheduleStatus.php' method='POST'>
+                        <input type='hidden' name='scheduleID' value='" . htmlspecialchars($row['ScheduleID']) . "'>
+                        <button class='search_btn' type='submit' name='status' value='Approved'>Approve</button>
+                        <button class='search_btn' type='submit' name='status' value='Cancelled'>Cancel</button>
+                    </form>
+                </td>
+            </tr>";
+    }
+} else {
+    echo "<tr><td colspan='5' style='text-align:center;'>No schedules available.</td></tr>";
+}
+?>
                     </tbody>
                 </table>
             </div>
@@ -90,3 +96,8 @@ if (!$result) {
     </div>
 </body>
 </html>
+
+<?php
+// Close the database connection
+$conn->close();
+?>
