@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $sql);
                 <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
                 <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
                 <a href="appointments.html"><button class="side_btn">Appointments</button></a>
-                <a href="shedules.html"><button class="side_btn">Schedules</button></a>
+                <a href="shedules.php"><button class="side_btn">Schedules</button></a>
                 <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
                 <a href="reports.html"><button class="side_btn">Reports</button></a>
                 <a><button class="side_btn">Messages</button></a>

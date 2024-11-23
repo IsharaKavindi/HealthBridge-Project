@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("si", $status, $scheduleID);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Schedule status updated successfully!'); window.location.href = 'schedules.php';</script>";
+        echo "<script>alert('Schedule status updated successfully!'); window.location.href = 'shedules.php';</script>";
     } else {
-        echo "<script>alert('Error updating status. Please try again.'); window.location.href = 'schedules.php';</script>";
+        echo "<script>alert('Error updating status. Please try again.'); window.location.href = 'shedules.php';</script>";
     }
 
     $stmt->close();

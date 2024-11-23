@@ -12,11 +12,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $doctorUsername = $_POST['doctorUsername'];
     $doctorPassword = $_POST['doctorPassword'];
 
-    // Check if the username exists
+    
     $query = "SELECT * FROM doctor WHERE doctorUsername = ?";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, "s", $doctorUsername);
@@ -26,14 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (mysqli_num_rows($result) > 0) {
         $doctor = mysqli_fetch_assoc($result);
 
-        // Verify the password
+        
         if (password_verify($doctorPassword, $doctor['doctorPassword'])) {
-            // Set session variables
+            
             $_SESSION['doctorUsername'] = $doctor['doctorUsername'];
             $_SESSION['doctorFirstname'] = $doctor['doctorFirstname'];
             $_SESSION['doctorLastname'] = $doctor['doctorLastname'];
+            $_SESSION['doctorID'] = $doctor['doctorID'];
 
-            // Redirect to doctor dashboard
+            
             echo "<script>alert('Login successful'); window.location.href = 'doctorProfile.php';</script>";
         } else {
             echo "<script>alert('Incorrect password'); window.location.href = 'doctorLogin.html';</script>";
