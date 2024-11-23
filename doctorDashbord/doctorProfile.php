@@ -5,6 +5,12 @@ if (!isset($_SESSION['doctorUsername'])) {
     echo "<script>alert('Please log in first.'); window.location.href = 'doctorLogin.html';</script>";
     exit();
 }
+if (!isset($_SESSION['doctorID'])) {
+    echo "<script>alert('You must log in to view this page.'); window.location.href = 'doctorLogin.html';</script>";
+    exit;
+}
+
+$doctorID = $_SESSION['doctorID']; 
 
 if (!isset($_SESSION['doctorID'])) {
     echo "<script>alert('You must log in to view this page.'); window.location.href = 'doctorLogin.html';</script>";
