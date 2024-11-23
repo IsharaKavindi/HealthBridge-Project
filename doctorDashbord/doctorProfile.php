@@ -95,7 +95,17 @@ mysqli_close($conn);
                     <div class="reg">
                         <div class="patientRegister_div">
                             <label for="profileImage" class="upload-label">
-                                <img id="profilePreview" src="<?php echo $doctorImage ?: '/img/profile_img.jpeg'; ?>" alt="Profile Image">
+
+                            <label for="profileImage" class="upload-label">
+                                <?php
+                                // Ensure the image path is correct or set a default image if not set
+                                $imagePath = !empty($doctorImage) ? "../img/" . htmlspecialchars($doctorImage) : "../img/defaultProfileImage.jpg";
+                                echo '<img id="profilePreview" src="' . $imagePath . '" alt="Doctor Image" style="width: 100px; height: 100px; border-radius: 50%;">';
+                                ?>
+                            </label>
+
+
+
                             </label>
                             <input class="search_icn" type="file" id="doctorImage" name="doctorImage" accept="image/*"><br><br>
                             <label>Title</label>
