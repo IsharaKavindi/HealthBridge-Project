@@ -85,8 +85,10 @@ $result = mysqli_query($conn, $sql);
                         <button class='view_btn'>View</button>
                     </a>
                 </td>
-                <td data-label='Update' class='status'>
-                    <button class='search_btn'>Update</button>
+               <td data-label='Update' class='status'>
+                    <a href='updatePrescription.php?id={$row['AppointmentID']}'>
+                        <button class='search_btn'>Update</button>
+                    </a>
                 </td>
             </tr>";
         }
