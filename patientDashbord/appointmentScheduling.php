@@ -81,9 +81,9 @@ $conn->close();
                     <div class="docProfile3">
                     <div class="channelShedule1">
                    
-                   <a href="#"><button class="menu_btn">Ongoing Appointments</button></a>
-                   <a href="#"><button class="menu_btn">Past Appointments</button></a>
-                   <a href="../channelling.html"><button class="menu_btn">Create Appointments</button></a>
+                   <a href="ongoingAppointments.php"><button class="menu_btn">Ongoing Appointments</button></a>
+                   <a href="pastAppointments.php"><button class="menu_btn">Past Appointments</button></a>
+                   <a href="../SpecializationDoctors.html"><button class="menu_btn">Create Appointments</button></a>
                </div>
                         <h2 class="topic">Doctors Available</h2>
 

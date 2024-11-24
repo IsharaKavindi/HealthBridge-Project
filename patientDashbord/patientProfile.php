@@ -31,7 +31,7 @@
             <div class="side_nav">
             <a href="patientProfile.html"><button class="side_btn">Profile</button></a>
                     <a><button class="side_btn" >Channelling</button></a>
-                    <a  href="appointmentSheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
+                    <a  href="appointmentScheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
                     <a href="channelStatus.html"><button class="side_btn1">Channel Status</button></a>
                     <a href="report.html"><button class="side_btn" > Reports</button></a>
                     <a href="prescriptions.html"><button class="side_btn"> Priscription</button></a>

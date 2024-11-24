@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['PatientID'] = $row['PatientID'];
             $_SESSION['registerFirstname'] = $row['registerFirstname'];
             $_SESSION['registerUsername'] = $row['registerUsername'];
+            $_SESSION['patientID'] = $fetchedPatientID;
 
             // Redirect to patient dashboard
             header("Location: ./patientDashbord/patientProfile.php");
