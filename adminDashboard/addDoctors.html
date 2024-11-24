@@ -10,7 +10,7 @@
 <body>
     <div class="doctordetail">
         <h2>Add Doctors</h2>
-        <form action="addDoctor.php" method="post">
+        <form action="addDoctor.php" method="post" enctype="multipart/form-data">
             <div class="reg">
                 <div class="patientRegister_div">
                     <label for="profileImage" class="upload-label">
@@ -23,12 +23,11 @@
                         <option>Ms</option>
                         <option>Mrs</option>
                     </select><br><br>
-                    <lable>Password</lable>
+                    <label>Password</label>
                     <input class="search_icn" type="password" id="doctorPassword" name="doctorPassword"><br><br><br>
                 </div>
 
                 <div class="patientRegister_div">
-                    
                     <label>First Name</label>
                     <input class="search_icn" placeholder="First Name" id="doctorFirstname" name="doctorFirstname"><br>
                     <label>Username</label>
@@ -39,27 +38,32 @@
                     <input class="search_icn" type="text" id="doctorQualifications" name="doctorQualifications"><br>
                     <label>Email</label>
                     <input class="search_icn" type="email" id="doctorEmail" name="doctorEmail"><br>
-
                 </div>
 
                 <div class="patientRegister_div">
                     <label>Last Name</label>
                     <input class="search_icn" placeholder="Last Name" id="doctorLastname" name="doctorLastname"><br>
                     <label>Specialization</label>
-                    <input class="search_icn" type="text" id="doctorSpecialization" name="doctorSpecialization"><br>
+                    <select class="search_icn" id="doctorSpecialization" name="doctorSpecialization">
+                        <option>General Practitioner</option>
+                        <option>Cardiologist</option>
+                        <option>Neurologist</option>
+                        <option>Dermatologist</option>
+                        <option>Pediatrician</option>
+                        <option>Orthopedic Surgeon</option>
+                        <option>Psychiatrist</option>
+                    </select><br>
                     <label>Experience</label>
                     <input class="search_icn" type="text" id="doctorExperience" name="doctorExperience"><br>
                     <label>Registration ID</label>
                     <input class="search_icn" type="number" id="doctorID" name="doctorID"><br>
                     <label>Phone Number</label>
                     <input class="search_icn" type="number" id="doctorPhoneNo" name="doctorPhoneNo"><br>
-
                 </div>
             </div>
 
             <input type="submit" name="submit" value="Add" class="search_btn">
         </form>
     </div>
-</div>
 </body>
 </html>
