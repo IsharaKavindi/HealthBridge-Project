@@ -6,18 +6,15 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-// Establish connection to the database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Check if the form is submitted
 if (isset($_POST['SignUp'])) {
-    // Collect form data
-   
-  $registerImage = $_POST['registerImage'];
+
+
   $registerTitle = $_POST['registerTitle'];
   $registerFirstname = $_POST['registerFirstname'];
   $registerLastname = $_POST['registerLastname'];
@@ -30,10 +27,16 @@ if (isset($_POST['SignUp'])) {
   $registerPassword = $_POST['registerPassword'];
   $registerConPassword = $_POST['registerConPassword'];
 
-    // Hash the password securely
     $encrypt_password = password_hash($registerPassword, PASSWORD_DEFAULT);
 
-    // Check if the NIC already exists in the database
+    if (!empty($_FILES['registerImage']['name'])) {
+        $imagePath = $_FILES['registerImage']['name'];
+        $target = "../img/" . basename($imagePath); 
+        move_uploaded_file($_FILES['registerImage']['tmp_name'], $target);
+    } else {
+        $imagePath = null; 
+    }
+
     $select = "SELECT * FROM patientregister WHERE registerNIC = '$registerNIC'";
     $result = mysqli_query($conn, $select);
 
@@ -41,15 +44,15 @@ if (isset($_POST['SignUp'])) {
         echo "<script>alert('User already exists'); window.location.href = 'register.html';</script>";
         exit();
     } else {
-        // Check if passwords match
+
         if ($registerPassword != $registerConPassword) {
             echo "<script>alert('Passwords do not match!'); window.location.href = 'register.html';</script>";
             exit();
         } else {
-            // Insert the user data into the database
+
             $insert = "INSERT INTO patientregister(registerImage, registerTitle, registerFirstname, registerLastname, registerUsername, registerNIC,
             registerEmail, registerDOB, registerPhoneNo, registerDOR, registerPassword)
-            VALUES('$registerImage', '$registerTitle', '$registerFirstname', '$registerLastname', '$registerUsername', '$registerNIC',
+            VALUES('$imagePath', '$registerTitle', '$registerFirstname', '$registerLastname', '$registerUsername', '$registerNIC',
             '$registerEmail', '$registerDOB', '$registerPhoneNo', '$registerDOR', '$encrypt_password')";
             
             if (mysqli_query($conn, $insert)) {

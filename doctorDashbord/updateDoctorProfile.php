@@ -29,13 +29,12 @@ $doctorExperience = $_POST['doctorExperience'];
 $doctorEmail = $_POST['doctorEmail'];
 $doctorPhoneNo = $_POST['doctorPhoneNo'];
 
-// Handle profile image upload
 if (!empty($_FILES['doctorImage']['name'])) {
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["doctorImage"]["name"]);
     move_uploaded_file($_FILES["doctorImage"]["tmp_name"], $target_file);
 } else {
-    $target_file = $_POST['currentDoctorImage']; // Use existing image if no new image uploaded
+    $target_file = $_POST['currentDoctorImage']; 
 }
 
 $query = "UPDATE doctor 
