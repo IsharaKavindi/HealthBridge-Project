@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     padding:0px 30px;
-    
+    text-align: center;
 }
  #logo_img{
     height:55px;
@@ -31,11 +31,46 @@
  #add_box{
     background-image: url(img/home_img.webp);
     background-color: aqua;
-    height:300px;
+    height:460px;
     border-radius: 20px;
-    margin:30px 180px;
+    margin:30px auto;
     background-repeat: no-repeat;
     background-size: cover;
+    width:1000px;
+    animation:change 20s infinite ease-in-out;
+
+
+ }
+
+ .addimg{
+  width:900px;
+ }
+
+ @keyframes change{
+    0%
+    {
+        background-image: url(img/im6.webp);
+    }
+    20%
+    {
+        background-image: url(img/im7.webp);
+    }
+    40%
+    {
+        background-image: url(img/im5.webp);
+    }
+    60%
+    {
+        background-image: url(img/im3.webp);
+    }
+    80%
+    {
+        background-image: url(img/im2.webp);
+    }
+    100%
+    {
+        background-image: url(img/im1.webp);
+    }
  }
 
  #menubtn_div{
@@ -81,10 +116,10 @@
 
  .img1{
     height:100px;
-    
     width:auto;
     border-radius: 50px;
     margin:20px 30px 10px 30px;
+
  }
 
  .dr_name{
