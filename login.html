@@ -9,19 +9,20 @@
 <body>
     <div class="logindiv">
         <div class="login1">
-            <img class="login_img" src="img/login_img.jpg">
+            <img class="login_img" src="img/login_img.jpg" alt="Login Image">
         </div>
         <div class="login2">
             <h2 id="login_topic">Login</h2>
-            <P class="login_txt">Username/Email/NIC/Passport</P>
-            <input class="search_icn" type="" id="patientUsername" name="patientUsername">
-            <p class="login_txt">Password</p>
-            <input class="search_icn" type="password" id="patientPassword" name="patientPassword"><br><br>
-            <button class="search_btn">Login</button>
-            <br><br>
-            <a>Don't have an account?<span> <a  class="span" href="register.html">Sign Up</a></span></a>
+            <form action="Login.php" method="post">
+                <p class="login_txt">Username/Email/NIC</p>
+                <input class="search_icn" type="text" id="patientIdentifier" name="patientIdentifier" required>
+                <p class="login_txt">Password</p>
+                <input class="search_icn" type="password" id="patientPassword" name="patientPassword" required><br><br>
+                <button type="submit" class="search_btn">Login</button>
+                <br><br>
+                <p>Don't have an account? <a class="span" href="register.html">Sign Up</a></p>
+            </form>
         </div>
     </div>
-
 </body>
 </html>

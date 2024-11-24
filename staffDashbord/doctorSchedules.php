@@ -38,7 +38,7 @@
             <th>Time</th>
             <th>Specialization</th>
             <th>Doctor Name</th>
-            <th>Doctor Action</th> <!-- New Column -->
+            <th>Doctor Action</th> 
             <th>Actions</th>
         </tr>
     </thead>

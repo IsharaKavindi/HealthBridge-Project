@@ -12,13 +12,6 @@ if (!isset($_SESSION['doctorID'])) {
 
 $doctorID = $_SESSION['doctorID']; 
 
-if (!isset($_SESSION['doctorID'])) {
-    echo "<script>alert('You must log in to view this page.'); window.location.href = 'doctorLogin.html';</script>";
-    exit;
-}
-
-$doctorID = $_SESSION['doctorID']; 
-
 
 $servername = "localhost";
 $username = "root";
@@ -33,7 +26,7 @@ if (!$conn) {
 
 $doctorUsername = $_SESSION['doctorUsername'];
 
-// Fetch doctor details
+
 $query = "SELECT * FROM doctor WHERE doctorUsername = ?";
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, "s", $doctorUsername);
