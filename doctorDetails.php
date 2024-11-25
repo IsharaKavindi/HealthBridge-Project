@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -9,6 +10,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+$PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
 
 $doctorID = isset($_GET['doctorID']) ? intval($_GET['doctorID']) : 0;
 
@@ -27,12 +29,13 @@ if (isset($_GET['scheduleDate']) && isset($_GET['scheduleTime'])) {
  
     $doctorFee = $doctor['doctorFee'];  
    
-    $channellingFee = 350.00;
+    $channellingFee = 1500.00;
     
     $totalFee = $channellingFee + $doctorFee;
     
-    header("Location: ./channellingBill.php?doctorID=$doctorID&scheduleDate=$scheduleDate&scheduleTime=$scheduleTime&doctorFee=$doctorFee&channellingFee=$channellingFee&totalFee=$totalFee");
+    header("Location: ./channellingBill.php?PatientID=$PatientID&doctorID=$doctorID&scheduleDate=$scheduleDate&scheduleTime=$scheduleTime&doctorFee=$doctorFee&channellingFee=$channellingFee&totalFee=$totalFee");
     exit();
+        exit();
 }
 
 $scheduleQuery = "
@@ -89,7 +92,8 @@ mysqli_close($conn);
                     <p>" . date('h:i A', strtotime($schedule['ScheduleTime'])) . "</p>
                     <p>
                         <button class='menu_btn' onclick='window.location.href=\"?doctorID=" . $doctorID . "&scheduleDate=" . $schedule['ScheduleDate'] . "&scheduleTime=" . $schedule['ScheduleTime'] . "\"'>
-                            Channel Now
+                           
+                        Channel Now
                         </button>
                     </p>
                 </div>";

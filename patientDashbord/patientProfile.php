@@ -22,6 +22,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$PatientID = $_SESSION['PatientID'];
+
 $userData = null;
 if (!empty($_SESSION['registerUsername'])) {
     $username = $_SESSION['registerUsername'];
@@ -39,10 +41,10 @@ if (!empty($_SESSION['registerUsername'])) {
         
         <div class="profile">
             <div class="side_nav">
-            <a href="patientProfile.html"><button class="side_btn">Profile</button></a>
+            <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
                     <a><button class="side_btn" >Channelling</button></a>
                     <a  href="appointmentScheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
-                    <a href="channelStatus.html"><button class="side_btn1">Channel Status</button></a>
+                    <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
                     <a href="report.html"><button class="side_btn" > Reports</button></a>
                     <a href="prescriptions.html"><button class="side_btn"> Priscription</button></a>
                     <a href="payment.html"><button class="side_btn"> Payments</button></a>

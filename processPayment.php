@@ -10,9 +10,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
+$PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $patientID = $_POST['patientID'];
+    $PatientID = $_POST['PatientID'];
     $doctorID = $_POST['doctorID'];
     $scheduleDate = $_POST['scheduleDate'];
     $scheduleTime = $_POST['scheduleTime'];
@@ -29,10 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($_FILES['slip']['tmp_name'], $slipFilePath)) {
            
             $query = "INSERT INTO appointments 
-                      (patientID, doctorID, scheduleDate, scheduleTime, doctorFee, channellingFee, totalFee, slipFilePath) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "iissddds", $patientID, $doctorID, $scheduleDate, $scheduleTime, $doctorFee, $channellingFee, $totalFee, $slipFilePath);
+          ( PatientID, doctorID, scheduleDate, scheduleTime, doctorFee, channellingFee, totalFee, slipFilePath) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conn, $query);
+
+if (!$stmt) {
+    die("MySQL error: " . mysqli_error($conn)); // Debug statement
+}
+
+mysqli_stmt_bind_param($stmt, "iissddds", $PatientID, $doctorID, $scheduleDate, $scheduleTime, $doctorFee, $channellingFee, $totalFee, $slipFilePath);
+
 
             if (mysqli_stmt_execute($stmt)) {
                 $message = "Appointment confirmed successfully!";
@@ -68,7 +75,7 @@ mysqli_close($conn);
             <div class="slip2">
                 <h2 class="topic">Payment Status</h2>
                 <p><?php echo htmlspecialchars($message); ?></p>
-                <a href="home.php" class="back_btn">Return to Home</a>
+                <a href="./patientDashbord/channelStatus.php" class="back_btn">Return to view status</a>
             </div>
         </div>
     </div>

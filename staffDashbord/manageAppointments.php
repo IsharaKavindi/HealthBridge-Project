@@ -46,7 +46,7 @@ $query = "SELECT appointments.appointmentID, appointments.scheduleDate, appointm
                  appointments.status
           FROM appointments
           JOIN doctor ON appointments.doctorID = doctor.doctorID
-          JOIN patientregister ON appointments.patientID = patientregister.PatientID";
+          JOIN patientregister ON appointments.patientID = patientregister.patientID";
 
 
 $stmt = $pdo->prepare($query);
