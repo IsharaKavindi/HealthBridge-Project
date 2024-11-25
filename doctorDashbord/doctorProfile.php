@@ -79,7 +79,7 @@ mysqli_close($conn);
                 <a><button class="side_btn">Messages</button></a>
                 <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
                 <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
-                <a href="conference.html"><button class="side_btn">Conference</button></a>
+                <a href="conference.php"><button class="side_btn">Conference</button></a>
                 <a href="help.html"><button class="side_btn">Help</button></a>
             </div>
                 
