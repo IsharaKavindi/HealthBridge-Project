@@ -24,9 +24,12 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
+        // Check and sanitize the image path
+        $imagePath = !empty($row['doctorImage']) ? "img/" . htmlspecialchars($row['doctorImage']) : "../img/default.jpg";
         
-        $imagePath = !empty($row['doctorImage']) ? htmlspecialchars($row['doctorImage']) : "img/default.jpg";
-    
+        // Debugging the path
+        echo "<!-- Image Path Debug: $imagePath -->";
+        
         echo '<div class="Specialist">';
         echo '<a href="doctorDetails.php?doctorID=' . urlencode($row['doctorID']) . '&PatientID=' . ($PatientID ? urlencode($PatientID) : '') . '">';
         echo '<img class="img1" src="' . $imagePath . '" alt="Dr. ' . htmlspecialchars($row['doctorFirstname']) . '" style="width: 100px; height: 100px; border-radius: 50%;">';
@@ -35,7 +38,6 @@ if (mysqli_num_rows($result) > 0) {
         echo '<p class="dr_special">' . htmlspecialchars($row['doctorSpecialization']) . '</p>';
         echo '</div>';
     }
-    
 } else {
     echo '<p>No specialists found for this specialization.</p>';
 }

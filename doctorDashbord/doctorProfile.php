@@ -88,12 +88,13 @@ mysqli_close($conn);
                     <div class="reg">
                         <div class="patientRegister_div">
 
-                            <label for="profileImage" class="upload-label">
-                                <?php
-                                $imagePath = !empty($doctorImage) ? "../img/" . htmlspecialchars($doctorImage) : "../img/defaultProfileImage.jpg";
-                                echo '<img id="profilePreview" src="' . $imagePath . '" alt="Doctor Image" style="width: 100px; height: 100px; border-radius: 50%;">';
-                                ?>
-                            </label>
+                        <label for="profileImage" class="upload-label">
+                        <?php
+                            $imagePath = !empty($doctorImage) ? "../img/" . htmlspecialchars($doctorImage) : "../img/defaultProfileImage.jpg";
+                            echo '<img id="profilePreview" src="' . $imagePath . '" alt="Doctor Image" style="width: 100px; height: 100px; border-radius: 50%;">';
+                        ?>
+                        </label>
+
                             <input class="search_icn" type="file" id="doctorImage" name="doctorImage" accept="image/*"><br><br>
                             <label>Title</label>
                             <select class="search_icn" id="doctorTitle" name="doctorTitle">

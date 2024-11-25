@@ -1,39 +1,101 @@
+<?php
+// Connect to MySQL (replace with your database details)
+$servername = "localhost";
+$usernameDB = "root";  // Your database username
+$password = "";        // Your database password
+$dbname = "helthbridge"; // Your database name
+
+// Create connection
+$conn = new mysqli($servername, $usernameDB, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle message submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $message = $_POST['message'];
+
+    if (!empty($username) && !empty($message)) {
+        $sql = "INSERT INTO messagestaff (username, patientMessage) VALUES ('$username', '$patientMessage')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New message sent successfully!";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+}
+
+// Fetch messages
+$sql = "SELECT * FROM messagestaff ORDER BY created_at DESC";
+$result = $conn->query($sql);
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelthBridge</title>
+    <title>HealthBridge</title>
     <link rel="stylesheet" href="/home.css">
     <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
 </head>
 <body>
     <div class="body_div">
         <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+            <img id="logo_img" src="/img/logo.jpg" alt="HealthBridge Logo">
             <h2 class="topic">Staff Dashboard</h2>
             <button class="sign_upbtn">Log Out</button>
         </div>
+
         <div class="main_div">
             <div class="side_nav">
-                <a><button class="side_btn" ><img class="img1"src="/img/profile_img.jpeg"></button></a>
+                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
                 <a href="staffProfile.html"><button class="side_btn">Staff Profile</button></a>
                 <a href="patientDetails.html"><button class="side_btn">Patient Details</button></a>
-                <a  href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
-                <a href="dactorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
+                <a href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
+                <a href="doctorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
                 <a href="doctorSchedules.html"><button class="side_btn">Doctor Schedules</button></a>
-                <a><button class="side_btn"> Massages</button></a>
+                <a><button class="side_btn">Messages</button></a>
                 <a href="patientMessage.html"><button class="side_btn1">Patients</button></a>
-                <a href="doctorMessage.html"><button class="side_btn1"> Doctor</button></a>
-                <a href="staffConference.html"><button class="side_btn">Conferense</button></a>
-                <a href="staffHelp.html"><button class="side_btn"> Help</button></a>
+                <a href="doctorMessage.html"><button class="side_btn1">Doctor</button></a>
+                <a href="staffConference.html"><button class="side_btn">Conference</button></a>
+                <a href="staffHelp.html"><button class="side_btn">Help</button></a>
             </div>
-            <div class="Message_div">
-                <input class="username1" placeholder="Username" id="RegisterUsername" name="RegisterUsername">
-                <div class="message_box">
 
+            <div class="Message_div">
+                <form method="POST" action="">
+                    <input class="username1" placeholder="Username" id="RegisterUsername" name="username" required>
+                    <textarea class="message_input" placeholder="Enter message..." id="staffMessage" name="message" required></textarea>
+                    <button type="submit" class="messageSend_btn">Send Message</button>
+                </form>
+
+                <div class="message_box">
+                    <table id="messageTable">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Display messages
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>" . htmlspecialchars($row['username']) . "</td><td>" . htmlspecialchars($row['message']) . "</td></tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='2'>No messages found</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-                <button class="messageSend_btn">Send Message</button>
             </div>
         </div>
     </div>
