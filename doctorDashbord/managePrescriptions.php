@@ -6,17 +6,27 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch prescriptions
-$sql = "SELECT AppointmentID, AppointmentDateTime, PrescriptionText, Reports, OtherDetails FROM prescriptions";
-$result = mysqli_query($conn, $sql);
+if (!isset($_SESSION['doctorID'])) {
+    echo "<script>alert('Unauthorized access. Please log in as a doctor.'); window.location.href = 'doctorLogin.html';</script>";
+    exit();
+}
+
+$doctorID = $_SESSION['doctorID']; 
+
+$sql = "SELECT AppointmentID, AppointmentDateTime, PrescriptionText, Reports, OtherDetails 
+        FROM prescriptions 
+        WHERE doctorID = ?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, 'i', $doctorID); 
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +51,7 @@ $result = mysqli_query($conn, $sql);
                 <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
                 <a href="appointments.html"><button class="side_btn">Appointments</button></a>
                 <a href="shedules.php"><button class="side_btn">Schedules</button></a>
-                <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
                 <a href="reports.html"><button class="side_btn">Reports</button></a>
                 <a><button class="side_btn">Messages</button></a>
                 <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
@@ -104,3 +114,11 @@ $result = mysqli_query($conn, $sql);
     </div>
 </body>
 </html>
+
+<?php
+
+mysqli_stmt_close($stmt);
+
+
+mysqli_close($conn);
+?>

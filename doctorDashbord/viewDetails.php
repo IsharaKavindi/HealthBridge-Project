@@ -1,7 +1,6 @@
 <?php
-include 'dbConnection.php'; // Include database connection file
+include 'dbConnection.php'; 
 
-// Get inputs from URL
 $id = isset($_GET['id']) ? intval($_GET['id']) : null;
 $type = isset($_GET['type']) ? $_GET['type'] : null;
 
@@ -10,7 +9,6 @@ if (!$id || !$type) {
     exit();
 }
 
-// Map the type to the database column
 $columns = [
     'prescriptions' => 'PrescriptionText',
     'reports' => 'Reports',
@@ -24,7 +22,6 @@ if (!array_key_exists($type, $columns)) {
 
 $column = $columns[$type];
 
-// Fetch record details
 $sql = "SELECT $column FROM prescriptions WHERE AppointmentID = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);

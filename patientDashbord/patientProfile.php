@@ -46,7 +46,7 @@ if (!empty($_SESSION['registerUsername'])) {
                     <a  href="appointmentScheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
                     <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
                     <a href="report.html"><button class="side_btn" > Reports</button></a>
-                    <a href="prescriptions.html"><button class="side_btn"> Priscription</button></a>
+                    <a href="prescriptions.php"><button class="side_btn"> Priscription</button></a>
                     <a href="payment.html"><button class="side_btn"> Payments</button></a>
                     <a><button class="side_btn"> Massages</button></a>
                     <a href="messageDoctor.html"><button class="side_btn1">Doctor</button></a>
