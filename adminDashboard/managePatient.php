@@ -16,9 +16,9 @@
         </div>
         <div class="main_div">
             <div class="side_nav">
-                <a href="manageDoctors.html"><button class="side_btn">Manage Doctors</button></a>
-                <a href="manageStaff.html"><button class="side_btn">Manage Staff</button></a>
-                <a href="managePatient.php"><button class="side_btn active">Manage Patients</button></a>
+                <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
+                <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
+                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
                 <a href="manageDoctorSchedules.html"><button class="side_btn">Manage Doctor Schedules</button></a>
                 <a href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
                 <a href="manageConference.html"><button class="side_btn">Manage Conference</button></a>
