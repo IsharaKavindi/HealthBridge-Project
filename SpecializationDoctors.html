@@ -19,7 +19,7 @@
             </div>
             <div class="search">
                 <p class="search_txt">Specialization</p>
-                <form id="search_form" action="specialistDoctors.php" method="post">
+                <!-- <form id="search_form" action="specialistDoctors.php" method="get"> -->
                     <form action="specialistDoctors.php" method="get" enctype="multipart/form-data"></form>
                     <select class="search_icn" id="search_specialization" name="specialization">
                         <option value="" disabled selected>Select Specialization</option>
@@ -43,9 +43,12 @@
                 <!-- <button class="search_btn"type="submit" id="search_button">Search</button> -->
             </div>
         </div>
-        <div id="specialists_div">
-            <!-- Doctor profiles will be dynamically inserted here -->
+        <div class="specialist">
+            <div id="specialists_div">
+                <!-- Doctor profiles will be dynamically inserted here -->
+            </div>
         </div>
+
         <div class="footer">
             <div id="detail">
                 <p>+94756784566</p>
