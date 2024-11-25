@@ -26,7 +26,9 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         // Check and sanitize the image path
-        $imagePath = !empty($row['doctorImage']) ? htmlspecialchars($row['doctorImage']) : "img/default.jpg";
+        $imagePath = !empty($row['doctorImage']) ? "../img/" . htmlspecialchars($row['doctorImage']) : "../img/default.jpg";
+        
+        
     
         echo '<div class="Specialist">';
         echo '<a href="doctorDetails.php?doctorID=' . urlencode($row['doctorID']) . '">';
