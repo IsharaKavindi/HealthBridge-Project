@@ -2,11 +2,11 @@
 session_start();
 
 // if (!isset($_SESSION['staffUsername'])) {
-//     echo "<script>alert('Please log in first.'); window.location.href = 'C:\wamp64\www\GitHub\HealthBridge-Project\staffDashbord\staffLogin.html';</script>";
+//     echo "<script>alert('Please log in first.'); window.location.href = 'staffDashbord\staffLogin.html';</script>";
 //     exit();
 // }
 // if (!isset($_SESSION['staffID'])) {
-//     echo "<script>alert('You must log in to view this page.'); window.location.href = 'C:\wamp64\www\GitHub\HealthBridge-Project\staffDashbord\staffLogin.html';</script>";
+//     echo "<script>alert('You must log in to view this page.'); window.location.href = 'staffDashbord\staffLogin.html';</script>";
 //     exit;
 // }
 
