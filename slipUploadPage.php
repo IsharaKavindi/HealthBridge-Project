@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "helthbridge";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+$PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +39,7 @@
                 </div>
                 <div class="slipUpload">
                     <form action="processPayment.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="patientID" value="<?php echo $_SESSION['patientID']; ?>">
+                        <input type="hidden" name="PatientID" value="<?php echo $_SESSION['PatientID']; ?>">
                         <input type="hidden" name="doctorID" value="<?php echo $_GET['doctorID']; ?>">
                         <input type="hidden" name="scheduleDate" value="<?php echo $_GET['scheduleDate']; ?>">
                         <input type="hidden" name="scheduleTime" value="<?php echo $_GET['scheduleTime']; ?>">

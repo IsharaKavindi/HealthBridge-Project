@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 $servername = "localhost";
 $username = "root";
@@ -10,6 +12,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+$PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
+// Access the PatientID
+
+// $PatientID = $_GET['PatientID'];
 
 $doctorID = $_GET['doctorID'];
 $scheduleDate = $_GET['scheduleDate'];
@@ -33,6 +39,7 @@ mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +47,19 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge - Channelling Bill</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="./patientDashboard/patientDashbord.css">
 </head>
 <body>
     <div>
         <div class="nav">
             <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
-            <button class="sign_upbtn">Sign Up</button>
+            <?php if (isset($_SESSION['PatientID'])): ?>
+                        <li class="topic">Welcome, <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>!</li>
+                        <button class="sign_upbtn"><a href="logout.php">Logout</a></button>
+                    <?php else: ?>
+                        <button class="sign_upbtn"><a href="login.html">Login</a></button>
+                    <?php endif; ?>
+            <!-- <button class="sign_upbtn">Sign Up</button> -->
         </div>
        
         <div class="bill_div">

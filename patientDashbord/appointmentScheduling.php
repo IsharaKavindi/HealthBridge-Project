@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 }
 
 
+
 $query = "
     SELECT 
         Schedules.ScheduleID,
@@ -54,9 +55,7 @@ $conn->close();
     <?php 
     if (!empty($_SESSION['registerUsername'])) {
         echo htmlspecialchars($_SESSION['registerUsername']);
-    } else {
-        echo 'Guest';
-    }
+    } 
     ?>
             </span></h2>
             <button class="sign_upbtn">Log Out</button>
@@ -66,7 +65,7 @@ $conn->close();
                 <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
                 <a><button class="side_btn">Channelling</button></a>
                 <a href="appointmentScheduling.php"><button class="side_btn1">Appointment Scheduling</button></a>
-                <a href="channelStatus.html"><button class="side_btn1">Channel Status</button></a>
+                <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
                 <a href="report.html"><button class="side_btn">Reports</button></a>
                 <a href="prescriptions.html"><button class="side_btn">Prescription</button></a>
                 <a href="payment.html"><button class="side_btn">Payments</button></a>
