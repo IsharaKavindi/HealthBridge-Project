@@ -19,7 +19,7 @@
                 <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
                 <a href="staffProfile.html"><button class="side_btn">Staff Profile</button></a>
                 <a href="patientDetails.html"><button class="side_btn">Patient Details</button></a>
-                <a href="manageAppointments.html"><button class="side_btn">Manage Appointments</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">Manage Appointments</button></a>
                 <a href="dactorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
                 <a href="doctorSchedules.php"><button class="side_btn active">Doctor Schedules</button></a>
                 <a><button class="side_btn">Messages</button></a>
