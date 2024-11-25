@@ -13,6 +13,7 @@ if (!$conn) {
 }
 
 if (isset($_POST['submit'])) {
+    
     $staffTitle = $_POST['staffTitle'];
     $staffFirstName = $_POST['staffFirstName'];
     $staffLastName = $_POST['staffLastName'];
@@ -28,7 +29,6 @@ if (isset($_POST['submit'])) {
     // Password encryption
     $encrypt_password = password_hash($staffPassword, PASSWORD_DEFAULT);
 
-    // Handle image upload
     if (!empty($_FILES['staffImage']['name'])) {
         $imagePath = $_FILES['staffImage']['name'];
         $target = "../img/" . basename($imagePath); // Corrected variable name
@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
     } else {
         $imagePath = null; // In case no image is uploaded
     }
+
 
     // Check if username already exists
     $select = "SELECT * FROM `staff` WHERE staffUsername = '$staffUsername'";

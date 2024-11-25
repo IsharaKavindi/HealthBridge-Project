@@ -10,7 +10,7 @@ session_start();
 //     exit;
 // }
 
-$staffID = $_SESSION['staffID']; 
+// $staffID = $_SESSION['staffID']; 
 
 $servername = "localhost";
 $username = "root";
