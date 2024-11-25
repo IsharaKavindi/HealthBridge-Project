@@ -8,21 +8,31 @@
     <link rel="stylesheet" href="patientDashbord.css">
 </head>
 <body>
-    <?php
-    session_start();
-    ?>
-    <div class="body_div">
-        <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HealthBridge Logo">
-            <!-- welcome username -->
-            <h2 class="topic">Welcome <span>
-    <?php 
-    if (!empty($_SESSION['registerUsername'])) {
-        echo htmlspecialchars($_SESSION['registerUsername']);
-    } else {
-        echo 'Guest';
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "helthbridge";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$userData = null;
+if (!empty($_SESSION['registerUsername'])) {
+    $username = $_SESSION['registerUsername'];
+    $query = "SELECT * FROM patientregister WHERE registerUsername = '$username'";
+    $result = mysqli_query($conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $userData = mysqli_fetch_assoc($result);
     }
-    ?>
+}
+?>
             </span></h2>
             <button class="sign_upbtn">Sign Up</button>
         </div>
@@ -44,45 +54,48 @@
             </div>
             
             <div class="patientdetail">
-                <form action="process_profile_edit.php" method="POST" enctype="multipart/form-data">
-                    <div class="reg">
-                        <div class="patientRegister_div">
-                            <label for="profileImage" class="upload-label">
-                                <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
-                            </label>
-                            <input class="search_icn" type="file" id="registerImage" name="registerImage" accept="image/*"><br><br>
-                            <label>Title</label>
-                            <select class="search_icn" id="registerTitle" name="registerTitle">
-                                <option>Mr</option>
-                                <option>Ms</option>
-                                <option>Mrs</option>
-                            </select>
-                        </div>
-                        <div class="patientRegister_div">
-                            <label>First Name</label>
-                            <input class="search_icn" placeholder="First Name" id="registerFirstname" name="registerFirstname" required><br>
-                            <label>Username</label>
-                            <input class="search_icn" type="text" id="registerUsername" name="registerUsername" required><br>
-                            <label>NIC</label>
-                            <input class="search_icn" type="text" id="registerNIC" name="registerNIC" required><br>
-                            <label>Email</label>
-                            <input class="search_icn" type="email" id="registerEmail" name="registerEmail" required><br>
-                        </div>
-                        <div class="patientRegister_div">
-                            <label>Last Name</label>
-                            <input class="search_icn" placeholder="Last Name" id="registerLastname" name="registerLastname" required><br>
-                            <label>Date of Birth</label>
-                            <input class="search_icn" type="date" id="registerDOB" name="registerDOB" required><br>
-                            <label>Phone Number</label>
-                            <input class="search_icn" type="number" id="registerPhoneNo" name="registerPhoneNo" required><br>
-                            <label>Date of Register</label>
-                            <input class="search_icn" type="date" id="registerDOR" name="registerDOR" required><br>
-                        </div>
-                    </div>
-    
-                    <button class="search_btn" type="submit">Edit Profile</button>
-                </form>
+    <form action="patientUpdate.php" method="POST" enctype="multipart/form-data">
+        <div class="reg">
+            <div class="patientRegister_div">
+            <label for="profileImage" class="upload-label">
+                 <?php
+                 $imagePath = (!empty($userData['registerImage'])) ? "../img/" . htmlspecialchars($userData['registerImage']) : "../img/defaultProfileImage.jpg";
+                    ?>
+               <img id="profilePreview" src="<?php echo $imagePath; ?>" alt="Profile Preview" style="width: 100px; height: 100px; border-radius: 50%;">
+            </label>
+
+                <input class="search_icn" type="file" id="registerImage" name="registerImage" accept="image/*"><br><br>
+                <label>Title</label>
+                <select class="search_icn" id="registerTitle" name="registerTitle">
+                    <option <?php echo ($userData['registerTitle'] == 'Mr') ? 'selected' : ''; ?>>Mr</option>
+                    <option <?php echo ($userData['registerTitle'] == 'Ms') ? 'selected' : ''; ?>>Ms</option>
+                    <option <?php echo ($userData['registerTitle'] == 'Mrs') ? 'selected' : ''; ?>>Mrs</option>
+                </select>
             </div>
+            <div class="patientRegister_div">
+                <label>First Name</label>
+                <input class="search_icn" placeholder="First Name" id="registerFirstname" name="registerFirstname" value="<?php echo htmlspecialchars($userData['registerFirstname'] ?? ''); ?>" required><br>
+                <label>Username</label>
+                <input class="search_icn" type="text" id="registerUsername" name="registerUsername" value="<?php echo htmlspecialchars($userData['registerUsername'] ?? ''); ?>" required><br>
+                <label>NIC</label>
+                <input class="search_icn" type="text" id="registerNIC" name="registerNIC" value="<?php echo htmlspecialchars($userData['registerNIC'] ?? ''); ?>" required><br>
+                <label>Email</label>
+                <input class="search_icn" type="email" id="registerEmail" name="registerEmail" value="<?php echo htmlspecialchars($userData['registerEmail'] ?? ''); ?>" required><br>
+            </div>
+            <div class="patientRegister_div">
+                <label>Last Name</label>
+                <input class="search_icn" placeholder="Last Name" id="registerLastname" name="registerLastname" value="<?php echo htmlspecialchars($userData['registerLastname'] ?? ''); ?>" required><br>
+                <label>Date of Birth</label>
+                <input class="search_icn" type="date" id="registerDOB" name="registerDOB" value="<?php echo htmlspecialchars($userData['registerDOB'] ?? ''); ?>" required><br>
+                <label>Phone Number</label>
+                <input class="search_icn" type="number" id="registerPhoneNo" name="registerPhoneNo" value="<?php echo htmlspecialchars($userData['registerPhoneNo'] ?? ''); ?>" required><br>
+                <label>Date of Register</label>
+                <input class="search_icn" type="date" id="registerDOR" name="registerDOR" value="<?php echo htmlspecialchars($userData['registerDOR'] ?? ''); ?>" required><br>
+            </div>
+        </div>
+        <button class="search_btn" type="submit">Edit Profile</button>
+    </form>
+</div>
         </div>
     </div>
 </body>

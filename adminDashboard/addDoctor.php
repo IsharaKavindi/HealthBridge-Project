@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     $doctorExperience = $_POST['doctorExperience'];
     $doctorEmail = $_POST['doctorEmail'];
     $doctorPhoneNo = $_POST['doctorPhoneNo'];
+    $doctorFee = $_POST['doctorFee'];
 
     // Password encryption
     $encrypt_password = password_hash($doctorPassword, PASSWORD_DEFAULT);
@@ -48,11 +49,11 @@ if (isset($_POST['submit'])) {
         // Insert query
         $insert = "INSERT INTO doctor (
             doctorImage, doctorTitle, doctorFirstname, doctorLastname, doctorUsername, doctorPassword, doctorAddress, 
-            doctorQualifications, doctorSpecialization, doctorExperience, doctorEmail, doctorPhoneNo
+            doctorQualifications, doctorSpecialization, doctorExperience, doctorEmail, doctorPhoneNo,doctorFee
         ) 
         VALUES (
             '$imagePath', '$doctorTitle', '$doctorFirstname', '$doctorLastname', '$doctorUsername', '$encrypt_password', '$doctorAddress', 
-            '$doctorQualifications', '$doctorSpecialization', '$doctorExperience', '$doctorEmail', '$doctorPhoneNo'
+            '$doctorQualifications', '$doctorSpecialization', '$doctorExperience', '$doctorEmail', '$doctorPhoneNo','$doctorFee'
         )";
 
         if (mysqli_query($conn, $insert)) {
