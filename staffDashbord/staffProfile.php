@@ -58,6 +58,11 @@ mysqli_close($conn);
     <title>Staff Profile</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
     <div class="body_div">
@@ -121,10 +126,12 @@ mysqli_close($conn);
                             <input class="search_icn" type="text" name="staffExperience" value="<?php echo $staffExperience; ?>"><br>
                         </div>
                     </div>
-                    <button type="submit" class="search_btn">Update Profile</button>
                 </form>
+                <button type="submit" class="search_btn">Update Profile</button>
             </div>
+            
         </div>
+
     </div>
 </body>
 </html>
