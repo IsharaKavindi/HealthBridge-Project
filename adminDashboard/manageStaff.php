@@ -6,18 +6,15 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-// Connect to the database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle delete request
 if (isset($_GET['staffUsername'])) {
     $staffUsername = $_GET['staffUsername'];
 
-    // SQL query to delete the staff record
     $deleteQuery = "DELETE FROM staff WHERE staffUsername = ?";
     $stmt = mysqli_prepare($conn, $deleteQuery);
     mysqli_stmt_bind_param($stmt, "s", $staffUsername);
@@ -30,7 +27,6 @@ if (isset($_GET['staffUsername'])) {
     mysqli_stmt_close($stmt);
 }
 
-// Fetch all staff records to display
 $fetchStaff = "SELECT staffID, staffUsername, CONCAT(staffTitle, ' ', staffFirstName, ' ', staffLastName) AS Name, 
                 staffSpecialization, staffEmail, staffPhoneNo FROM staff";
 $result = mysqli_query($conn, $fetchStaff);
@@ -40,6 +36,7 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +44,7 @@ mysqli_close($conn);
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
+
 <body>
     <div class="body_div">
         <div class="nav">
@@ -89,8 +87,8 @@ mysqli_close($conn);
                                     <td data-label="Email"><?php echo $row['staffEmail']; ?></td>
                                     <td data-label="Phone NO"><?php echo $row['staffPhoneNo']; ?></td>
                                     <td data-label="update" class="status">
-                                        <a href="?staffUsername=<?php echo $row['staffUsername']; ?>" 
-                                           onclick="return confirm('Are you sure you want to delete this staff member?')">
+                                        <a href="?staffUsername=<?php echo $row['staffUsername']; ?>"
+                                            onclick="return confirm('Are you sure you want to delete this staff member?')">
                                             <button class="search_btn">Delete</button>
                                         </a>
                                     </td>
@@ -107,4 +105,5 @@ mysqli_close($conn);
         </div>
     </div>
 </body>
+
 </html>

@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -9,13 +8,12 @@ $dbname = "helthbridge";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
 if (isset($_POST['update'])) {
-    $doctorID = $_POST['doctorID']; // Assuming doctorID is unique
+    $doctorID = $_POST['doctorID'];
     $doctorImage = $_FILES['doctorImage']['name'];
     $doctorTitle = $_POST['doctorTitle'];
     $doctorFirstname = $_POST['doctorFirstname'];
@@ -31,14 +29,11 @@ if (isset($_POST['update'])) {
 
     $encrypt_password = !empty($doctorPassword) ? password_hash($doctorPassword, PASSWORD_DEFAULT) : null;
 
-    // Handle uploaded image if provided
     if (!empty($doctorImage)) {
         $targetDir = "../uploads/";
         $targetFile = $targetDir . basename($doctorImage);
         move_uploaded_file($_FILES["doctorImage"]["tmp_name"], $targetFile);
     }
-
-    // Construct the SQL query
     $updateQuery = "UPDATE doctor SET 
         doctorImage = IF('$doctorImage' != '', '$doctorImage', doctorImage),
         doctorTitle = '$doctorTitle',
@@ -62,4 +57,3 @@ if (isset($_POST['update'])) {
 }
 
 mysqli_close($conn);
-?>

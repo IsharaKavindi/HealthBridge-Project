@@ -26,19 +26,16 @@ if (isset($_POST['submit'])) {
     $staffEmail = $_POST['staffEmail'];
     $staffPhoneNo = $_POST['staffPhoneNo'];
 
-    // Password encryption
     $encrypt_password = password_hash($staffPassword, PASSWORD_DEFAULT);
 
     if (!empty($_FILES['staffImage']['name'])) {
         $imagePath = $_FILES['staffImage']['name'];
-        $target = "../img/" . basename($imagePath); // Corrected variable name
+        $target = "../img/" . basename($imagePath); 
         move_uploaded_file($_FILES['staffImage']['tmp_name'], $target);
     } else {
-        $imagePath = null; // In case no image is uploaded
+        $imagePath = null; 
     }
 
-
-    // Check if username already exists
     $select = "SELECT * FROM `staff` WHERE staffUsername = '$staffUsername'";
     $result = mysqli_query($conn, $select);
 
@@ -46,7 +43,6 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Staff member already exists'); window.location.href = 'addStaff.html';</script>";
         exit();
     } else {
-        // Insert query
         $insert = "INSERT INTO staff (
             staffImage, staffTitle, staffFirstName, staffLastName, staffUsername, staffPassword, staffAddress, 
             staffQualifications, staffSpecialization, staffExperience, staffEmail, staffPhoneNo
