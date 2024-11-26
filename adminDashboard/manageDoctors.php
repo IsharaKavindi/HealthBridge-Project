@@ -6,18 +6,15 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-// Connect to the database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle delete request
 if (isset($_GET['doctorUsername'])) {
     $doctorUsername = $_GET['doctorUsername'];
 
-    // SQL query to delete the doctor record
     $deleteQuery = "DELETE FROM doctor WHERE doctorUsername = ?";
     $stmt = mysqli_prepare($conn, $deleteQuery);
     mysqli_stmt_bind_param($stmt, "s", $doctorUsername);
@@ -30,7 +27,6 @@ if (isset($_GET['doctorUsername'])) {
     mysqli_stmt_close($stmt);
 }
 
-// Fetch all doctor records to display
 $fetchDoctors = "SELECT doctorID, doctorUsername, CONCAT(doctorTitle, ' ', doctorFirstname, ' ', doctorLastname) AS Name, 
                 doctorSpecialization, doctorEmail, doctorPhoneNo FROM doctor";
 $result = mysqli_query($conn, $fetchDoctors);
@@ -58,7 +54,7 @@ mysqli_close($conn);
             <div class="side_nav">
                 <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
                 <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
-                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
+                <!-- <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a> -->
                 <a href="manageDoctorSchedules.php"><button class="side_btn">Manage Doctor Schedules</button></a>
                 <a href="manageAppointments.php"><button class="side_btn">Manage Appointments</button></a>
                 <a href="manageConference.html"><button class="side_btn">Manage Conference</button></a>

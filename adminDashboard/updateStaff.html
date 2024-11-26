@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,9 @@
     <link rel="stylesheet" href="/home.css">
     <link rel="stylesheet" href="/patientDashbord/patientDashbord.css">
 </head>
+
 <body>
     <div class="doctordetail">
-<<<<<<< HEAD
-        <h2>Edit Profile</h2>
-        <form action="updateStaff.php" method="post">
-            <div class="reg">
-                <div class="patientRegister_div">
-=======
         <h2>Update Staff</h2>
         <form>
             <div class="reg">
@@ -22,7 +18,6 @@
                     <label for="profileImage" class="upload-label">
                         <img id="profilePreview" src="/img/profile_img.jpeg" alt="Profile Preview">
                     </label>
->>>>>>> a8deb9d1c3f209384a07b0493c7b71fa7857d3af
                     <input class="search_icn" type="file" id="staffImage" name="staffImage" accept="image/*"><br><br>
                     <label>Title</label>
                     <select class="search_icn" id="staffTitle" name="staffTitle">
@@ -31,13 +26,16 @@
                         <option>Mrs</option>
                     </select><br><br>
                     <lable>Password</lable>
-                    <input class="search_icn" type="password" id="staffPassword" name="staffPassword" value="<?php echo $; ?>" required>
+                    <input class="search_icn" type="password" id="staffPassword" name="staffPassword"
+                        value="<?php echo $; ?>" required>
                 </div>
                 <div class="patientRegister_div">
                     <label>First Name</label>
-                    <input class="search_icn" placeholder="First Name" id="staffFirstname" name="staffFirstname" value="<?php echo $; ?>" required><br>
+                    <input class="search_icn" placeholder="First Name" id="staffFirstname" name="staffFirstname"
+                        value="<?php echo $; ?>" required><br>
                     <label>Username</label>
-                    <input class="search_icn" type="text" id="staffUsername" name="staffUsername" value="<?php echo $; ?>" required><br>
+                    <input class="search_icn" type="text" id="staffUsername" name="staffUsername"
+                        value="<?php echo $; ?>" required><br>
                     <label>Working Address</label>
                     <input class="search_icn" type="text" id="staffAddress" name="staffAddress"><br>
                     <label>Qualifications</label>
@@ -57,7 +55,7 @@
                     <input class="search_icn" type="number" id="staffID" name="staffID"><br>
                     <label>Phone Number</label>
                     <input class="search_icn" type="number" id="staffPhoneNo" name="staffPhoneNo"><br>
-               </div>
+                </div>
             </div>
 
             <button class="search_btn">Update</button>
@@ -79,4 +77,5 @@
         }
     </script>
 </body>
+
 </html>

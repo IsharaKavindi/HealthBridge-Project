@@ -27,6 +27,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $stmt->error;
     }
+    if ($stmt->execute()) {
+        // Create a notification for the doctor
+        $message = "A new schedule has been added for " . $scheduleDate . " at " . $scheduleTime . ".";
+        $notifyStmt = $conn->prepare("INSERT INTO notifications (UserID, UserType, Message) VALUES (?, 'doctor', ?)");
+        $notifyStmt->bind_param("is", $doctorID, $message);
+    
+        if ($notifyStmt->execute()) {
+            echo "<script>console.log('Notification added successfully.');</script>";
+        } else {
+            echo "<script>console.log('Error adding notification: " . $notifyStmt->error . "');</script>";
+        }
+    
+        $notifyStmt->close();
+        echo "<script>alert('Schedule added successfully.'); window.location.href = 'doctorSchedules.php';</script>";
+    }
+    
 
     $stmt->close();
     $conn->close();
