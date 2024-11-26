@@ -26,6 +26,19 @@ if (!$conn) {
 
 $doctorUsername = $_SESSION['doctorUsername'];
 
+// Fetch unread notifications
+$sql = "SELECT NotificationID, Message FROM notifications WHERE UserID = ? AND UserType = 'doctor' AND IsRead = FALSE";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $doctorID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$notifications = [];
+while ($row = $result->fetch_assoc()) {
+    $notifications[] = $row;
+}
+$unreadCount = count($notifications); 
+
 
 $query = "SELECT * FROM doctor WHERE doctorUsername = ?";
 $stmt = mysqli_prepare($conn, $query);
@@ -60,8 +73,33 @@ mysqli_close($conn);
     <title>Doctor Profile</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+
 </head>
 <body>
+    <!-- n -->
+<div class="notifications">
+    <button id="notification-btn">
+        Notifications <span id="notification-count"><?php echo $unreadCount; ?></span>
+    </button>
+    <div id="notification-list" style="display: none;">
+    <?php
+    if ($unreadCount > 0) {
+        foreach ($notifications as $notification) {
+            echo "<div class='notification-item'>
+                    <p>" . htmlspecialchars($notification['Message']) . "</p>
+                    <form action='markNotificationRead.php' method='POST'>
+                        <input type='hidden' name='notificationID' value='" . htmlspecialchars($notification['NotificationID']) . "'>
+                        <button type='submit'>Mark as Read</button>
+                    </form>
+                  </div>";
+        }
+    } else {
+        echo "<p>No new notifications.</p>";
+    }
+    ?>
+</div>
+</div>
+<!-- n -->
     <div class="body_div">
         <div class="nav">
             <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
@@ -129,5 +167,12 @@ mysqli_close($conn);
             </div>
         </div>
     </div>
+
+    <script>
+    document.getElementById("notification-btn").onclick = function() {
+        const notificationList = document.getElementById("notification-list");
+        notificationList.style.display = notificationList.style.display === "none" ? "block" : "none";
+    };
+</script>
 </body>
 </html>

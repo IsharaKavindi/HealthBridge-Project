@@ -18,6 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $stmt = $conn->prepare("UPDATE Schedules SET Status = ? WHERE ScheduleID = ?");
     $stmt->bind_param("si", $status, $scheduleID);
+    
+     // Insert a notification for the staff about this change
+     $notificationMessage = "Doctor " . htmlspecialchars($_SESSION['doctorName']) . " has " . strtolower($status) . " the appointment with Schedule ID " . $scheduleID;
+     $stmt = $conn->prepare("INSERT INTO notifications (UserID, UserType, Message) VALUES (?, 'staff', ?)");
+     $stmt->bind_param("is", $doctorID, $notificationMessage);
+     $stmt->execute();
 
     if ($stmt->execute()) {
         echo "<script>alert('Schedule status updated successfully!'); window.location.href = 'shedules.php';</script>";
