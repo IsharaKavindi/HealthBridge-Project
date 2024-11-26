@@ -47,7 +47,7 @@ try {
 <body>
 <div class="body_div">
     <div class="nav">
-        <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+        <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
         <h2 class="topic">Doctor Dashboard</h2>
         <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
     </div>
