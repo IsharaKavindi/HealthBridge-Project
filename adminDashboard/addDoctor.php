@@ -26,19 +26,17 @@ if (isset($_POST['submit'])) {
     $doctorPhoneNo = $_POST['doctorPhoneNo'];
     $doctorFee = $_POST['doctorFee'];
 
-    // Password encryption
     $encrypt_password = password_hash($doctorPassword, PASSWORD_DEFAULT);
 
-    // Handle image upload
     if (!empty($_FILES['doctorImage']['name'])) {
         $imagePath = $_FILES['doctorImage']['name'];
-        $target = "../img/" . basename($imagePath); // Corrected variable name
+        $target = "../img/" . basename($imagePath);
         move_uploaded_file($_FILES['doctorImage']['tmp_name'], $target);
     } else {
-        $imagePath = null; // In case no image is uploaded
+        $imagePath = null;
     }
 
-    // Check if username already exists
+
     $select = "SELECT * FROM `doctor` WHERE doctorUsername = '$doctorUsername'";
     $result = mysqli_query($conn, $select);
 
@@ -46,7 +44,6 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Doctor already exists'); window.location.href = 'addDoctors.html';</script>";
         exit();
     } else {
-        // Insert query
         $insert = "INSERT INTO doctor (
             doctorImage, doctorTitle, doctorFirstname, doctorLastname, doctorUsername, doctorPassword, doctorAddress, 
             doctorQualifications, doctorSpecialization, doctorExperience, doctorEmail, doctorPhoneNo,doctorFee
@@ -64,4 +61,3 @@ if (isset($_POST['submit'])) {
     }
 }
 mysqli_close($conn);
-?>

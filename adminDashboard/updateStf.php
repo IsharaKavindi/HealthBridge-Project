@@ -1,5 +1,4 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +10,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $staffTitle = $_POST['staffTitle'];
     $staffPassword = $_POST['staffPassword'];
@@ -26,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $staffID = $_POST['staffID'];
     $staffPhoneNo = $_POST['staffPhoneNo'];
 
-    // Handle profile image upload
     if (isset($_FILES['staffImage']) && $_FILES['staffImage']['size'] > 0) {
         $targetDir = "../uploads/";
         $fileName = basename($_FILES['staffImage']['name']);
@@ -39,10 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        $staffImage = ""; // Keep existing image if none is uploaded
+        $staffImage = ""; 
     }
 
-    // Update staff details in the database
     $sql = "UPDATE staff 
             SET staffTitle = '$staffTitle',
                 staffPassword = '$staffPassword',
@@ -60,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($conn, $sql)) {
         echo "Profile updated successfully.";
         header('location:'.SITEURL.'\staffDashbord\staffProfile.php');
-        // header("Location: .SITEURL. \staffDashbord\staffProfile.php");
         exit;
     } else {
         echo "Error updating profile: " . mysqli_error($conn);
