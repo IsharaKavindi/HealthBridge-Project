@@ -51,15 +51,14 @@ mysqli_close($conn);
 </head>
 <body>
     <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+    <div class="nav">
+    <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
             <?php if (isset($_SESSION['PatientID'])): ?>
-                        <li class="topic">Welcome, <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>!</li>
-                        <button class="sign_upbtn"><a href="logout.php">Logout</a></button>
+                        <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
+                        <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
                     <?php else: ?>
-                        <button class="sign_upbtn"><a href="login.html">Login</a></button>
+                        <a href="login.html"><button class="sign_upbtn">Login</button></a>
                     <?php endif; ?>
-            <!-- <button class="sign_upbtn">Sign Up</button> -->
         </div>
        
         <div class="bill_div">

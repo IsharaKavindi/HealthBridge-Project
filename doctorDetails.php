@@ -54,9 +54,23 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Details</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="patientDashbord/patientDashbord.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <style>
+    .sign_upbtn 
+
+    </style> -->
 </head>
 <body>
+<div class="nav">
+<a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
+            <?php if (isset($_SESSION['PatientID'])): ?>
+                        <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
+                        <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
+                    <?php else: ?>
+                        <a href="login.html"><button class="sign_upbtn">Login</button></a>
+                    <?php endif; ?>
+        </div>
     <div class="docProfile_div">
         <div class="docProfile">
             <div class="docProfile1">

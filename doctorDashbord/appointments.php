@@ -53,7 +53,7 @@ try {
     </div>
     <div class="main_div">
         <div class="side_nav">
-            <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+            <a><button class="side_btn"><img class="img1" src="../img/profile_img.jpeg"></button></a>
             <a href="doctorProfile.php"><button class="side_btn">Doctor Profile</button></a>
             <a href="appointments.php"><button class="side_btn active">Appointments</button></a>
             <a href="shedules.php"><button class="side_btn">Schedules</button></a>

@@ -155,7 +155,7 @@
 }
 
 .status.approved {
-    background-color: #4CAF50;
+    background-color: #0078d7;
     color: #fff;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .contact_div{
-    background-image: url(/img/contact-us.avif);
+    background-image: url(../img/contact-us.avif);
     background-repeat: no-repeat;
     background-size:contain;
     margin: 100px 30px;

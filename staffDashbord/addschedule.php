@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge</title>
     <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="../patientDashbord.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
+<div class="body_div">
+        <div class="nav">
+            <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
+            <h2 class="topic">Staff Dashboard</h2>
+            <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
+        </div>
+        <div class="profile">
+            <div class="side_nav">
+                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+                <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">Appointments</button></a>
+                <a href="addschedule.php"><button class="side_btn">Schedules</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="reports.html"><button class="side_btn">Reports</button></a>
+                <a><button class="side_btn">Messages</button></a>
+                <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
+                <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
+                <a href="conference.html"><button class="side_btn">Conference</button></a>
+                <a href="help.html"><button class="side_btn">Help</button></a>
+            </div>
     <form action="addSchedules.php" method="POST">
         <div class="managePrescription">
             <h1>Add Schedules</h1>

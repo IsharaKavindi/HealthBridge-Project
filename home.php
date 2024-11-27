@@ -4,26 +4,25 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
-// Connect to the database
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Database connection
+
 $conn = mysqli_connect('localhost', 'root', '', 'helthbridge') or die(mysqli_error($conn));
 
-// Handle category selection (if needed, e.g., specialization)
+$PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
+
 $specialization = isset($_POST['specialization']) ? $_POST['specialization'] : 'all';
 
-// Build SQL query
 $sql = "SELECT * FROM doctor WHERE 1";
 if ($specialization != 'all') {
     $sql .= " AND doctorSpecialization = '$specialization'";
 }
 
-// Execute query
 $res = mysqli_query($conn, $sql);
 ?>
 
@@ -34,6 +33,7 @@ $res = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Details</title>
     <link rel="stylesheet" href="./home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -115,24 +115,55 @@ $res = mysqli_query($conn, $sql);
         opacity: 0;
         animation: fade 10s infinite ease-in-out;
     }
-    
+    .profile-icon {
+    font-size: 28px;
+    color: #0078d7; 
+    margin-left: 15px; 
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+    margin-top: 10px;
+}
+
+.profile-icon:hover {
+    color: rgb(14, 77, 165);
+    transform: scale(1.1); 
+}
 
     </style>
 </head>
 <body>
     <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
-            <div>
-            <a href="register.html"><button class="sign_upbtn">Sign Up</button></a>
-            <a href="login.html"><button class="sign_upbtn">Login</button></a>
-            </div>
+    <div class="nav">
+    <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
+    <div>
+        <a href="register.html"><button class="sign_upbtn">Sign Up</button></a>
+        <a href="login.html"><button class="sign_upbtn">Login</button></a>
+        
+        <!-- Profile Icon -->
+        <?php if (isset($_SESSION['PatientID'])): ?>
+            <a href="patientDashbord/patientProfile.php" class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        <?php else: ?>
+            <a href="login.html?message=<?php echo urlencode('Please log in to access your profile.'); ?>" class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+</div>
+
         </div>
         <div id="add_box">
         </div>
         <div id="menubtn_div">
             <a href="searchDoc.php"><button class="menu_btn"> Doctor Channelling</button></a>
-            <a href=""><button class="menu_btn">Appoiments</button></a>
+            <?php if (isset($_SESSION['PatientID'])): ?>
+    <a href="patientDashbord/appointmentScheduling.php"><button class="menu_btn">Appointments</button></a>
+<?php else: ?>
+    <a href="login.html?message=<?php echo urlencode('Please log in to view your appointments.'); ?>"><button class="menu_btn">Appointments</button></a>
+<?php endif; ?>
+
             <a href="aboutUs.html"><button class="menu_btn">About Us</button></a>
             <a href="contactUs.html"><button class="menu_btn">Contact Us</button></a>
         </div>
@@ -142,11 +173,11 @@ $res = mysqli_query($conn, $sql);
     <div class="doctor-grid">
    
         <?php
-        // Count rows
+       
         $count = mysqli_num_rows($res);
 
         if ($count > 0) {
-            // Loop through each doctor
+            
             while ($row = mysqli_fetch_assoc($res)) {
                 $doctorImage = $row['doctorImage'];
                 $doctorName = $row['doctorTitle'] . ' ' . $row['doctorFirstname'] . ' ' . $row['doctorLastname'];
@@ -156,10 +187,10 @@ $res = mysqli_query($conn, $sql);
                     <div class="doctor-image">
                         <?php
                         if (!empty($doctorImage)) {
-                            // Display doctor image
+                           
                             echo "<img src='./img/$doctorImage' alt='$doctorName'>";
                         } else {
-                            // Default image if no image is available
+                           
                             echo "<img src='./img/im1.webp' alt='Default Doctor'>";
                         }
                         ?>
@@ -177,7 +208,6 @@ $res = mysqli_query($conn, $sql);
             echo "<div class='error'>No doctors available.</div>";
         }
 
-        // Close database connection
         mysqli_close($conn);
         ?>
     </div>

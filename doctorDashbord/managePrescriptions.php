@@ -47,7 +47,7 @@ $result = mysqli_stmt_get_result($stmt);
         </div>
         <div class="main_div">
             <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+                <a><button class="side_btn"><img class="img1" src="../img/profile_img.jpeg"></button></a>
                 <a href="doctorProfile.html"><button class="side_btn">Doctor Profile</button></a>
                 <a href="appointments.html"><button class="side_btn">Appointments</button></a>
                 <a href="shedules.php"><button class="side_btn">Schedules</button></a>
