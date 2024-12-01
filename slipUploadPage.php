@@ -43,6 +43,7 @@ $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
                     <p>Colombo Branch</p>
                 </div>
                 <div class="slipUpload">
+                    
                     <form action="processPayment.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="PatientID" value="<?php echo $_SESSION['PatientID']; ?>">
                         <input type="hidden" name="doctorID" value="<?php echo $_GET['doctorID']; ?>">
@@ -53,7 +54,7 @@ $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
                         <input type="hidden" name="totalFee" value="<?php echo $_GET['totalFee']; ?>">
                         <div>
                             <input class="upload" type="file" id="slip" name="slip" required>
-                            <p>Upload Slip</p>
+                            
                             <button class="search_btn" type="submit">Confirm Appointment</button>
                         </div>
                        

@@ -14,12 +14,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$PatientID = $_SESSION['PatientID'];
-if (!isset($_SESSION['PatientID'])) {
-    $message = urlencode("Please log in to view your appointments.");
-    header("Location: ../login.html?message=$message");
-    exit();
-}
 
 
 $query = "
@@ -51,45 +45,50 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge - Doctor Availability</title>
     <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="patientDashbord.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
     <style>
         body{
             text-align: center;
         }
+        .channelShedule1{
+            height:1px;
+        }
+        .main_div{
+            display:flex;
+        }
+        .sche{
+            width:800px;
+            margin-left:50px;
+        }
 </style>
 </head>
 <body>
-    <div class="body_div">
+<div class="body_div">
         <div class="nav">
-        <a href="../home.php"><img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo"></a>
-            <h2 class="topic">Welcome <span>
-    <?php 
-    if (!empty($_SESSION['registerUsername'])) {
-        echo htmlspecialchars($_SESSION['registerUsername']);
-    } 
-    ?>
-            </span></h2>
-            <button class="sign_upbtn" onclick="window.location.href='logoutPatient.php'">Log Out</button>
+            <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
+            <h2 class="topic">Admin Dashboard</h2>
+            <button class="sign_upbtn">Log Out</button>
         </div>
         <div class="main_div">
         <div class="side_nav">
-            <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
-                <a  href="appointmentScheduling.php"><button class="side_btn">Appointment sheduling</button></a>
-                <a href="channelStatus.php"><button class="side_btn">Channel Status</button></a>
-                <a href="prescriptions.php"><button class="side_btn"> Prescription</button></a>
-                <a href="payment.php"><button class="side_btn"> Payments</button></a>
-                <a href="conference.php"><button class="side_btn">Doctor Conferense</button></a>
-                <a href="contact.php"><button class="side_btn"> Contact us</button></a>
+                <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
+                <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
+                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
+                <a href="manageDoctorSchedules.php"><button class="side_btn">View Doctor Schedules</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">View Appointments</button></a>
+                <a href="manageConference.html"><button class="side_btn">View Conference</button></a>
+                
             </div>
-            <div class="channelShedule">
-                <!-- <div class="channelShedule1">
+            <!-- <div class="channelShedule">
+              <div class="channelShedule1">
                     <div class="docProfile3"> -->
-                    <div class="channelShedule1">
+                    
                    
-                   <a href="ongoingAppointments.php"><button class="menu_btn">Ongoing Appointments</button></a>
+                   <!-- <a href="ongoingAppointments.php"><button class="menu_btn">Ongoing Appointments</button></a>
                    <a href="pastAppointments.php"><button class="menu_btn">Past Appointments</button></a>
                    <a href="../SpecializationDoctors.html"><button class="menu_btn">Create Appointments</button></a>
-               </div>
+               </div>  -->
+               <div class="sche">
                         <h2 class="topic">Doctors Available</h2>
 
                         <?php

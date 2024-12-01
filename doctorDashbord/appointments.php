@@ -12,6 +12,8 @@ $username = "root";
 $password = "";
 $dbname = "helthbridge";
 
+
+
 try {
    
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -43,6 +45,13 @@ try {
     <title>Doctor Appointments</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        .tbl th, .tbl td {
+    padding: 20px 30px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}  
+    </style>
 </head>
 <body>
 <div class="body_div">
@@ -52,19 +61,17 @@ try {
         <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
     </div>
     <div class="main_div">
-        <div class="side_nav">
-            <a><button class="side_btn"><img class="img1" src="../img/profile_img.jpeg"></button></a>
-            <a href="doctorProfile.php"><button class="side_btn">Doctor Profile</button></a>
-            <a href="appointments.php"><button class="side_btn active">Appointments</button></a>
-            <a href="shedules.php"><button class="side_btn">Schedules</button></a>
-            <a href="managePrescriptions.html"><button class="side_btn">Manage Prescriptions</button></a>
-            <a href="reports.html"><button class="side_btn">Reports</button></a>
-            <a><button class="side_btn">Messages</button></a>
-            <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
-            <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
-            <a href="conference.html"><button class="side_btn">Conference</button></a>
-            <a href="help.html"><button class="side_btn">Help</button></a>
-        </div>
+    <div class="side_nav">
+                <!-- <a><button class="side_btn">                        <?php
+                            $imagePath = !empty($doctorImage) ? "../img/" . htmlspecialchars($doctorImage) : "../img/defaultProfileImage.jpg";
+                            echo '<img id="profilePreview" src="' . $imagePath . '" alt="Doctor Image" style="width: 100px; height: 100px; border-radius: 50%;">';
+                        ?></button></a> -->
+                <a href="doctorProfile.php"><button class="side_btn">Doctor Profile</button></a>
+                <a href="appointments.php"><button class="side_btn">Appointments</button></a>
+                <a href="shedules.php"><button class="side_btn">Schedules</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="conference.php"><button class="side_btn">Conference</button></a>
+            </div>
         <div class="channelStatus">
             <h2>Confirmed Appointments</h2>
             <?php if (!empty($appointments)): ?>

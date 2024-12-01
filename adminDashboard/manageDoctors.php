@@ -42,6 +42,12 @@ mysqli_close($conn);
     <title>HelthBridge</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        .add_btn{
+            
+            margin-left:20px;
+        }
+</style>
 </head>
 <body>
     <div class="body_div">
@@ -54,11 +60,11 @@ mysqli_close($conn);
             <div class="side_nav">
                 <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
                 <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
-                <!-- <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a> -->
+                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
                 <a href="manageDoctorSchedules.php"><button class="side_btn">View Doctor Schedules</button></a>
                 <a href="manageAppointments.php"><button class="side_btn">View Appointments</button></a>
                 <a href="manageConference.html"><button class="side_btn">View Conference</button></a>
-                <a href="adminHelp.html"><button class="side_btn">Help</button></a>
+                
             </div>
             <div class="channelStatus">
                 <h2>Manage Doctors</h2>

@@ -56,14 +56,32 @@ mysqli_close($conn);
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="patientDashbord/patientDashbord.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <style>
-    .sign_upbtn 
+<style>
+    .doc_img{
+        height:150px;
+        width:150px;
+        border-radius:50%;
+    }
+    .shedule_div{
+        padding:0px;
+    }
+    .docProfile{
+        width:200px;
+        margin-left:20px;
+    }
+    .docProfile2{
+        width:300px;
+    }
+    .docProfile3{
+        width:400px;
+    }
 
-    </style> -->
+    </style>
 </head>
 <body>
-<div class="nav">
-<a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
+    <div>
+        <div class="nav">
+            <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
             <?php if (isset($_SESSION['PatientID'])): ?>
                         <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
                         <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
@@ -93,9 +111,7 @@ mysqli_close($conn);
             <p class="fa fa-phone"> Phone</p>
             <p class="doc_detail"><?php echo htmlspecialchars($doctor['doctorPhoneNo']); ?></p>
         </div>
-                
-    </div>
-    <div class="docProfile3">
+        <div class="docProfile3">
         <h2 class="topic">Schedules</h2>
         <?php
         if ($scheduleResult && mysqli_num_rows($scheduleResult) > 0) {
@@ -105,7 +121,7 @@ mysqli_close($conn);
                     <p class='shedule_date'>" . date('d M Y', strtotime($schedule['ScheduleDate'])) . "</p>
                     <p>" . date('h:i A', strtotime($schedule['ScheduleTime'])) . "</p>
                     <p>
-                        <button class='menu_btn' onclick='window.location.href=\"?doctorID=" . $doctorID . "&scheduleDate=" . $schedule['ScheduleDate'] . "&scheduleTime=" . $schedule['ScheduleTime'] . "\"'>
+                        <button class='sign_upbtn' onclick='window.location.href=\"?doctorID=" . $doctorID . "&scheduleDate=" . $schedule['ScheduleDate'] . "&scheduleTime=" . $schedule['ScheduleTime'] . "\"'>
                            
                         Channel Now
                         </button>
@@ -117,6 +133,10 @@ mysqli_close($conn);
         }
         ?>
     </div>
+                
+    </div>
+
+
     
     <div class="footer">
         <div id="detail">
@@ -136,6 +156,7 @@ mysqli_close($conn);
             <p>Partners</p>
             <p>Careers</p>
         </div>
+    </div>
     </div>
 </body>
 </html>

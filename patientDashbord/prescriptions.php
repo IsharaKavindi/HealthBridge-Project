@@ -45,7 +45,16 @@ $result = mysqli_stmt_get_result($stmt);
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="patientDashbord.css">
     <style>
-        .modal {
+ 
+        .tbl th, .tbl td {
+            padding: 20px 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }  
+        .tbl,.add_btn{
+        margin-left:10px;
+        }
+                .modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -122,12 +131,10 @@ $result = mysqli_stmt_get_result($stmt);
             <button class="sign_upbtn" onclick="window.location.href='logoutPatient.php'">Log Out</button>
         </div>
         <div class="main_div">
-            <div class="side_nav">
+        <div class="side_nav">
             <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
-                <a><button class="side_btn" >Channelling</button></a>
-                <a  href="appointmentScheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
-                <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
-                <a href="report.php"><button class="side_btn" > Reports</button></a>
+                <a  href="appointmentScheduling.php"><button class="side_btn">Appointment sheduling</button></a>
+                <a href="channelStatus.php"><button class="side_btn">Channel Status</button></a>
                 <a href="prescriptions.php"><button class="side_btn"> Prescription</button></a>
                 <a href="payment.php"><button class="side_btn"> Payments</button></a>
                 <a href="conference.php"><button class="side_btn">Doctor Conferense</button></a>

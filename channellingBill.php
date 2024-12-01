@@ -13,9 +13,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
-// Access the PatientID
-
-// $PatientID = $_GET['PatientID'];
 
 $doctorID = $_GET['doctorID'];
 $scheduleDate = $_GET['scheduleDate'];
@@ -48,6 +45,11 @@ mysqli_close($conn);
     <title>HelthBridge - Channelling Bill</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="./patientDashboard/patientDashbord.css">
+    <style>
+        .bill_div{
+            margin-top:20px;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -63,9 +65,10 @@ mysqli_close($conn);
        
         <div class="bill_div">
             <h2 class="topic">Channelling Bill</h2>
+            <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div>
             <div class="bill">
                 <div class="bill1">
-                <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div>
+                <!-- <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div> -->
                     <p>Channelling Fee</p>
                     <p>Doctor Fee</p>
                     <p>Total</p>

@@ -81,7 +81,7 @@ mysqli_close($conn);
             <div class="slip2">
                 <h2 class="topic">Payment Status</h2>
                 <p><?php echo htmlspecialchars($message); ?></p>
-                <a href="./patientDashbord/channelStatus.php" class="back_btn">Return to view status</a>
+                <a href="./patientDashbord/channelStatus.php"><button class="sign_upbtn">Return to view status</button></a>
             </div>
         </div>
     </div>

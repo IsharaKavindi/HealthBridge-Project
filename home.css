@@ -296,9 +296,11 @@
 /* Doctor Deatail Page */
 
 .docProfile_div{
-  display: flex;
-  justify-content: space-around;
-  align-items: start;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0px;
+  /* justify-content: space-around;
+  align-items: start; */
 }
 
 .docProfile{
@@ -306,7 +308,10 @@
   grid-row: 1fr 1fr;
   
 }
-
+.docProfile1, .docProfile2, .docProfile3{
+margin-right: 0px;
+margin-left: 0px;
+}
 .docProfile1, .docProfile2{
   margin-top: 50px;
   border:none;

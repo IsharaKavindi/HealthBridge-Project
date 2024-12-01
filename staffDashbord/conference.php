@@ -88,15 +88,7 @@ if (!empty($appointments)):
 
             </td>
             <td data-label="Action">
-                <form method="POST" action="appointmentsManage.php">
-                    <input type="hidden" name="appointmentID" value="<?php echo $appointment['appointmentID']; ?>">
-                    <?php if ($appointment['status'] == 'pending'): ?>
-                        <button class="search_btn" type="submit" name="action" value="confirm">Confirm</button>
-                        <button class="search_btn" type="submit" name="action" value="delete">Cancel</button>
-                    <?php else: ?>
-                        <span>Action unavailable</span>
-                    <?php endif; ?>
-                </form>
+ <a href="https://meet.google.com/rdj-zosw-juh"><button class="search_btn">Access</button></a>
             </td>
         </tr>
         <?php endforeach; ?>

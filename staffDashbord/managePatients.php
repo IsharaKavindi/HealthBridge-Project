@@ -23,20 +23,19 @@
 
 <body>
     <div class="body_div">
-        <div class="nav">
+    <div class="nav">
             <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
-            <h2 class="topic">Admin Dashboard</h2>
-            <button class="sign_upbtn">Log Out</button>
+            <h2 class="topic">Staff Dashboard</h2>
+            <button class="sign_upbtn" onclick="window.location.href='logoutStaff.php'">Log Out</button>
         </div>
-        <div class="main_div">
-        <div class="side_nav">
-                <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
-                <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
-                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
-                <a href="manageDoctorSchedules.php"><button class="side_btn">View Doctor Schedules</button></a>
-                <a href="manageAppointments.php"><button class="side_btn">View Appointments</button></a>
-                <a href="manageConference.html"><button class="side_btn">View Conference</button></a>
-                
+        <div class="profile">
+            <div class="side_nav">                              
+                <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">Appointments</button></a>
+                <a href="managePatients.php"><button class="side_btn">Manage Patients</button></a>
+                <a href="doctorSchedules.php"><button class="side_btn">Schedules</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="conference.php"><button class="side_btn">Conference</button></a>
             </div>
             <div class="channelStatus">
                 <h2>Manage Patients</h2>
@@ -76,7 +75,7 @@
                                     <td data-label='Phone No'>{$row['registerPhoneNo']}</td>
                                     <td data-label='Email'>{$row['registerEmail']}</td>
                                     <td data-label='Action'>
-                                        <a href='deletePatient.php?nic={$row['registerNIC']}' onclick='return confirm(\"Are you sure you want to delete this patient?\")'>
+                                        <a href='../adminDashboard/deletePatient.php?nic={$row['registerNIC']}' onclick='return confirm(\"Are you sure you want to delete this patient?\")'>
                                             <button class='search_btn'>Delete</button>
                                         </a>
                                     </td>

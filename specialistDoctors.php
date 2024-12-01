@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) {
     
         echo '<div class="Specialist">';
         echo '<a href="doctorDetails.php?doctorID=' . urlencode($row['doctorID']) . '&PatientID=' . ($PatientID ? urlencode($PatientID) : '') . '">';
-        echo '<img class="img1" src="' . $imagePath . '" alt="Dr. ' . htmlspecialchars($row['doctorFirstname']) . '" style="height: 100px; border-radius: 50%;">';
+        echo '<img class="img1" src="' . $imagePath . '" alt="Dr. ' . htmlspecialchars($row['doctorFirstname']) . '" style="height: 100px; width:100px; border-radius: 50%;">';
         echo '<h3 class="dr_name">Dr. ' . htmlspecialchars($row['doctorFirstname']) . ' ' . htmlspecialchars($row['doctorLastname']) . '</h3>';
         echo '</a>';
         echo '<p class="dr_special">' . htmlspecialchars($row['doctorSpecialization']) . '</p>';

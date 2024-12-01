@@ -36,6 +36,16 @@ $result = $conn->query($sql);
     <title>Confirmed Appointments</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="patientDashbord.css">
+    <style>
+        .tbl th, .tbl td {
+    padding: 20px 30px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }  
+    .tbl,.add_btn{
+    margin-left:10px;
+    }
+    </style>
 </head>
 <body>
     <div class="body_div">
@@ -51,12 +61,10 @@ $result = $conn->query($sql);
             <button class="sign_upbtn" onclick="window.location.href='logoutPatient.php'">Log Out</button>
         </div>
         <div class="main_div">
-            <div class="side_nav">
+        <div class="side_nav">
             <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
-                <a><button class="side_btn" >Channelling</button></a>
-                <a  href="appointmentScheduling.php"><button class="side_btn1">Appointment sheduling</button></a>
-                <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
-                <a href="report.php"><button class="side_btn" > Reports</button></a>
+                <a  href="appointmentScheduling.php"><button class="side_btn">Appointment sheduling</button></a>
+                <a href="channelStatus.php"><button class="side_btn">Channel Status</button></a>
                 <a href="prescriptions.php"><button class="side_btn"> Prescription</button></a>
                 <a href="payment.php"><button class="side_btn"> Payments</button></a>
                 <a href="conference.php"><button class="side_btn">Doctor Conferense</button></a>
