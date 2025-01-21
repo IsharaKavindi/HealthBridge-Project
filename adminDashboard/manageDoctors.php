@@ -55,9 +55,9 @@ mysqli_close($conn);
                 <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
                 <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
                 <!-- <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a> -->
-                <a href="manageDoctorSchedules.php"><button class="side_btn">Manage Doctor Schedules</button></a>
-                <a href="manageAppointments.php"><button class="side_btn">Manage Appointments</button></a>
-                <a href="manageConference.html"><button class="side_btn">Manage Conference</button></a>
+                <a href="manageDoctorSchedules.php"><button class="side_btn">View Doctor Schedules</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">view Appointments</button></a>
+                <a href="manageConference.html"><button class="side_btn">view Conference</button></a>
                 <a href="adminHelp.html"><button class="side_btn">Help</button></a>
             </div>
             <div class="channelStatus">
