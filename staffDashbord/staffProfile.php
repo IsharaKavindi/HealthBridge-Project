@@ -69,21 +69,20 @@ mysqli_close($conn);
         <div class="nav">
             <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
             <h2 class="topic">Staff Dashboard</h2>
-            <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
+            <button class="sign_upbtn" onclick="window.location.href='logoutStaff.php'">Log Out</button>
         </div>
         <div class="profile">
             <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+                <a><button class="side_btn">                                <?php
+                                $imagePath = !empty($staffImage) ? "../img/" . htmlspecialchars($staffImage) : "../img/defaultProfileImage.jpg";
+                                echo '<img id="profilePreview" src="' . $imagePath . '" alt="Staff Image" style="width: 100px; height: 100px; border-radius: 50%;">';
+                                ?></button></a>
                 <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
-                <a href="appointments.html"><button class="side_btn">Appointments</button></a>
-                <a href="schedules.html"><button class="side_btn">Schedules</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">Appointments</button></a>
+                <a href="managePatients.php"><button class="side_btn">Manage Patients</button></a>
+                <a href="doctorSchedules.php"><button class="side_btn">Schedules</button></a>
                 <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
-                <a href="reports.html"><button class="side_btn">Reports</button></a>
-                <a><button class="side_btn">Messages</button></a>
-                <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
-                <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
-                <a href="conference.html"><button class="side_btn">Conference</button></a>
-                <a href="help.html"><button class="side_btn">Help</button></a>
+                <a href="conference.php"><button class="side_btn">Conference</button></a>
             </div>
                 
             <div class="staffdetail">

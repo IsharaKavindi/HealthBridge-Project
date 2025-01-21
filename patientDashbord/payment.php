@@ -41,10 +41,14 @@ $result = $conn->query($sql);
     padding: 20px 30px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    }  
-    .tbl,.add_btn{
-    margin-left:10px;
-    }
+}  
+.tbl,.add_btn{
+margin-left:10px;
+}
+.status approved{
+    margin:5px 5px;
+    border-radius:10px;
+}
     </style>
 </head>
 <body>
@@ -80,6 +84,7 @@ $result = $conn->query($sql);
                             <th>Doctor Name</th>
                             <th>Date and Time</th>
                             <th>Status</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,6 +99,9 @@ $result = $conn->query($sql);
                             </td>
                             <td data-label="Status" class="status approved">
                                 <?php echo htmlspecialchars($row['status']); ?>
+                            </td>
+                            <td data-label="Status" class="status approved">
+                                Paid
                             </td>
                         </tr>
                         <?php endwhile; ?>

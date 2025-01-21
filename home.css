@@ -115,13 +115,14 @@
     font-style: normal;
  }
 
- .Specialist{
-    background-color:rgb(247, 249, 250);
-    border: none;
-    border-radius: 15px;
-    margin:10px;
-
- }
+ .Specialist {
+  background-color: rgb(247, 249, 250);
+  border: none;
+  border-radius: 15px;
+  margin: 40px;
+  display: inline-block;
+  margin-top: 19px;
+}
 
  .img1{
     height:100px;
@@ -131,9 +132,11 @@
 
  }
 
- .dr_name{
+ .dr_name {
     text-align: center;
     margin:0px 0px;
+    text-decoration: none;
+    color:black;
  }
 
  .dr_special{
@@ -178,7 +181,7 @@
  }
 
  .search_btn{
-   background-color: rgb(16, 167, 71);
+   background-color: #0078d7;
    color:white;
    border:none;
    padding:10px 18px;
@@ -293,9 +296,11 @@
 /* Doctor Deatail Page */
 
 .docProfile_div{
-  display: flex;
-  justify-content: space-around;
-  align-items: start;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0px;
+  /* justify-content: space-around;
+  align-items: start; */
 }
 
 .docProfile{
@@ -303,7 +308,10 @@
   grid-row: 1fr 1fr;
   
 }
-
+.docProfile1, .docProfile2, .docProfile3{
+margin-right: 0px;
+margin-left: 0px;
+}
 .docProfile1, .docProfile2{
   margin-top: 50px;
   border:none;
@@ -357,7 +365,7 @@
 }
 
 .Fee{
-  color:rgb(16, 167, 71);
+  color:#0078d7;
 }
 
 .doc_img{
@@ -569,3 +577,5 @@
   cursor: pointer;
   font-size: 12px;
 }
+
+

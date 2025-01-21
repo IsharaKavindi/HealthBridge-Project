@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelthBridge</title>
     <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="../patientDashbord.css">
+    <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
 </head>
 <body>
+<div class="body_div">
     <form action="addSchedules.php" method="POST">
         <div class="managePrescription">
             <h1>Add Schedules</h1>

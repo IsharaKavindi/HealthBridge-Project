@@ -13,9 +13,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null; 
-// Access the PatientID
-
-// $PatientID = $_GET['PatientID'];
 
 $doctorID = $_GET['doctorID'];
 $scheduleDate = $_GET['scheduleDate'];
@@ -48,25 +45,30 @@ mysqli_close($conn);
     <title>HelthBridge - Channelling Bill</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="./patientDashboard/patientDashbord.css">
+    <style>
+        .bill_div{
+            margin-top:20px;
+        }
+    </style>
 </head>
 <body>
     <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+    <div class="nav">
+    <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
             <?php if (isset($_SESSION['PatientID'])): ?>
-                        <li class="topic">Welcome, <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>!</li>
-                        <button class="sign_upbtn"><a href="logout.php">Logout</a></button>
+                        <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
+                        <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
                     <?php else: ?>
-                        <button class="sign_upbtn"><a href="login.html">Login</a></button>
+                        <a href="login.html"><button class="sign_upbtn">Login</button></a>
                     <?php endif; ?>
-            <!-- <button class="sign_upbtn">Sign Up</button> -->
         </div>
        
         <div class="bill_div">
             <h2 class="topic">Channelling Bill</h2>
+            <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div>
             <div class="bill">
                 <div class="bill1">
-                <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div>
+                <!-- <div class="docfee"><p>Doctor: <?php echo htmlspecialchars($doctorName); ?></p></div> -->
                     <p>Channelling Fee</p>
                     <p>Doctor Fee</p>
                     <p>Total</p>

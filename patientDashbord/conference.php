@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -95,6 +96,7 @@ $result = $conn->query($sql);
                             <td data-label="Status" class="status approved">
                                 <?php echo htmlspecialchars($row['status']); ?>
                             </td>
+                            <td><a href="https://meet.google.com/rdj-zosw-juh"><button class="search_btn">Access</button></a></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -111,3 +113,12 @@ $result = $conn->query($sql);
 <?php
 $conn->close(); 
 ?>
+     </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

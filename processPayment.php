@@ -67,15 +67,21 @@ mysqli_close($conn);
 </head>
 <body>
     <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+    <div class="nav">
+    <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
+            <?php if (isset($_SESSION['PatientID'])): ?>
+                        <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
+                        <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
+                    <?php else: ?>
+                        <a href="login.html"><button class="sign_upbtn">Login</button></a>
+                    <?php endif; ?>
         </div>
         <div class="slip_div">
             <div class="slip1"></div>
             <div class="slip2">
                 <h2 class="topic">Payment Status</h2>
                 <p><?php echo htmlspecialchars($message); ?></p>
-                <a href="./patientDashbord/channelStatus.php" class="back_btn">Return to view status</a>
+                <a href="./patientDashbord/channelStatus.php"><button class="sign_upbtn">Return to view status</button></a>
             </div>
         </div>
     </div>

@@ -73,7 +73,20 @@ mysqli_close($conn);
     <title>Doctor Profile</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        .reg{
+            width:400px;
+        }
+        .search_icn{
+            padding:10px 2px;
+            text-align:center;
+        }
+        .patientRegister_div,.patientRegister{
+            padding:20x;
+        }
+        
 
+    </style>
 </head>
 <body>
     <!-- n -->
@@ -108,17 +121,15 @@ mysqli_close($conn);
         </div>
         <div class="profile">
             <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
+                <a><button class="side_btn">                        <?php
+                            $imagePath = !empty($doctorImage) ? "../img/" . htmlspecialchars($doctorImage) : "../img/defaultProfileImage.jpg";
+                            echo '<img id="profilePreview" src="' . $imagePath . '" alt="Doctor Image" style="width: 100px; height: 100px; border-radius: 50%;">';
+                        ?></button></a>
                 <a href="doctorProfile.php"><button class="side_btn">Doctor Profile</button></a>
                 <a href="appointments.php"><button class="side_btn">Appointments</button></a>
                 <a href="shedules.php"><button class="side_btn">Schedules</button></a>
                 <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
-                <a href="reports.html"><button class="side_btn">Reports</button></a>
-                <a><button class="side_btn">Messages</button></a>
-                <a href="messagePatients.html"><button class="side_btn1">Patients</button></a>
-                <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
                 <a href="conference.php"><button class="side_btn">Conference</button></a>
-                <a href="help.html"><button class="side_btn">Help</button></a>
             </div>
                 
             <div class="doctordetail">
@@ -146,16 +157,16 @@ mysqli_close($conn);
                             <input class="search_icn" type="text" name="doctorFirstname" value="<?php echo $doctorFirstname; ?>"><br>
                             <label>Last Name</label>
                             <input class="search_icn" type="text" name="doctorLastname" value="<?php echo $doctorLastname; ?>"><br>
-                            <label>Address</label>
-                            <input class="search_icn" type="text" name="doctorAddress" value="<?php echo $doctorAddress; ?>"><br>
-                            <label>Qualifications</label>
-                            <input class="search_icn" type="text" name="doctorQualifications" value="<?php echo $doctorQualifications; ?>"><br>
                             <label>Email</label>
                             <input class="search_icn" type="email" name="doctorEmail" value="<?php echo $doctorEmail; ?>"><br>
                             <label>Phone Number</label>
                             <input class="search_icn" type="number" name="doctorPhoneNo" value="<?php echo $doctorPhoneNo; ?>"><br>
                         </div>
                         <div class="patientRegister_div">
+                        <label>Address</label>
+                            <input class="search_icn" type="text" name="doctorAddress" value="<?php echo $doctorAddress; ?>"><br>
+                            <label>Qualifications</label>
+                            <input class="search_icn" type="text" name="doctorQualifications" value="<?php echo $doctorQualifications; ?>"><br>
                             <label>Specialization</label>
                             <input class="search_icn" type="text" name="doctorSpecialization" value="<?php echo $doctorSpecialization; ?>"><br>
                             <label>Experience</label>

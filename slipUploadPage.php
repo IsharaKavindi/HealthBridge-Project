@@ -22,9 +22,14 @@ $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
 </head>
 <body>
     <div>
-        <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
-            <button class="sign_upbtn">Sign Up</button>
+    <div class="nav">
+    <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
+            <?php if (isset($_SESSION['PatientID'])): ?>
+                        <h2 class="topic">Welcome <?php echo htmlspecialchars($_SESSION['registerUsername']); ?>! </h2>
+                        <a href="patientDashbord/logoutPatient.php"><button class="sign_upbtn">Logout</button></a>
+                    <?php else: ?>
+                        <a href="login.html"><button class="sign_upbtn">Login</button></a>
+                    <?php endif; ?>
         </div>
         <div class="slip_div">
             <div class="slip1"></div>
@@ -38,6 +43,7 @@ $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
                     <p>Colombo Branch</p>
                 </div>
                 <div class="slipUpload">
+                    
                     <form action="processPayment.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="PatientID" value="<?php echo $_SESSION['PatientID']; ?>">
                         <input type="hidden" name="doctorID" value="<?php echo $_GET['doctorID']; ?>">
@@ -48,7 +54,7 @@ $PatientID = isset($_SESSION['PatientID']) ? $_SESSION['PatientID'] : null;  ?>
                         <input type="hidden" name="totalFee" value="<?php echo $_GET['totalFee']; ?>">
                         <div>
                             <input class="upload" type="file" id="slip" name="slip" required>
-                            <p>Upload Slip</p>
+                            
                             <button class="search_btn" type="submit">Confirm Appointment</button>
                         </div>
                        

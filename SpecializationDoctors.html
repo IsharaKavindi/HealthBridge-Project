@@ -9,20 +9,21 @@
 <body>
     <div>
         <div class="nav">
-            <img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo">
+            <a href="home.php"><img id="logo_img" src="img/logo.jpg" alt="HelthBridge_logo"></a>
             <button class="sign_upbtn">Sign Up</button>
         </div>
         <div class="search_bar">
-            <div class="search">
+            <!-- <div class="search">
                 <p class="search_txt">Doctor Name</p>
                 <input class="search_icn" id="search_name" type="text" placeholder="Search Doctor Name">
-            </div>
+            </div> -->
             <div class="search">
                 <p class="search_txt">Specialization</p>
                 <!-- <form id="search_form" action="specialistDoctors.php" method="get"> -->
                     <form action="specialistDoctors.php" method="get" enctype="multipart/form-data"></form>
                     <select class="search_icn" id="search_specialization" name="specialization">
                         <option value="" disabled selected>Select Specialization</option>
+                        <option value="all">All</option>
                         <option value="General Practitioner">General Practitioner</option>
                         <option value="Cardiologist">Cardiologist</option>
                         <option value="Neurologist">Neurologist</option>
@@ -34,10 +35,10 @@
                  <button class="search_btn" type="submit">Search</button>
                 </form>
             </div>
-            <div class="search">
+            <!-- <div class="search">
                 <p class="search_txt">Date</p>
                 <input class="search_icn" id="search_date" type="date">
-            </div>
+            </div> -->
             <div class="search">
                 <!-- <button class="search_btn" type="submit">Search</button> -->
                 <!-- <button class="search_btn"type="submit" id="search_button">Search</button> -->

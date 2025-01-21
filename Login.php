@@ -12,6 +12,10 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+if (isset($_GET['message'])) {
+    echo "<script>alert('" . htmlspecialchars($_GET['message']) . "');</script>";
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $patientIdentifier = mysqli_real_escape_string($conn, $_POST['patientIdentifier']);
     $patientPassword = mysqli_real_escape_string($conn, $_POST['patientPassword']);

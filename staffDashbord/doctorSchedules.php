@@ -9,24 +9,19 @@
 </head>
 <body>
     <div class="body_div">
-        <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+    <div class="nav">
+            <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
             <h2 class="topic">Staff Dashboard</h2>
-            <button class="sign_upbtn" onclick="window.location.href='logout.php'">Log Out</button>
+            <button class="sign_upbtn" onclick="window.location.href='logoutStaff.php'">Log Out</button>
         </div>
-        <div class="main_div">
-            <div class="side_nav">
-                <a><button class="side_btn"><img class="img1" src="/img/profile_img.jpeg"></button></a>
-                <a href="staffProfile.html"><button class="side_btn">Staff Profile</button></a>
-                <a href="patientDetails.html"><button class="side_btn">Patient Details</button></a>
-                <a href="manageAppointments.php"><button class="side_btn">Manage Appointments</button></a>
-                <a href="dactorAvailability.html"><button class="side_btn">Doctor Availability</button></a>
-                <a href="doctorSchedules.php"><button class="side_btn active">Doctor Schedules</button></a>
-                <a><button class="side_btn">Messages</button></a>
-                <a href="patientMessage.html"><button class="side_btn1">Patients</button></a>
-                <a href="doctorMessage.html"><button class="side_btn1">Doctor</button></a>
-                <a href="staffConference.html"><button class="side_btn">Conference</button></a>
-                <a href="staffHelp.html"><button class="side_btn">Help</button></a>
+        <div class="profile">
+            <div class="side_nav">                              
+                <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">Appointments</button></a>
+                <a href="managePatients.php"><button class="side_btn">Manage Patients</button></a>
+                <a href="doctorSchedules.php"><button class="side_btn">Schedules</button></a>
+                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
+                <a href="conference.php"><button class="side_btn">Conference</button></a>
             </div>
             <div class="channelStatus">
                 <h2>Doctor Schedules</h2>

@@ -6,22 +6,29 @@
     <title>Manage Appointments</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="../patientDashbord/patientDashbord.css">
+    <style>
+        .tbl{
+            margin-top:30px;
+            margin-left:20px;
+        }
+    </style>
 </head>
 <body>
 <div class="body_div">
-<div class="nav">
+        <div class="nav">
             <img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo">
-            <h2 class="topic">Staff Dashboard</h2>
-            <button class="sign_upbtn" onclick="window.location.href='logoutStaff.php'">Log Out</button>
+            <h2 class="topic">Admin Dashboard</h2>
+            <button class="sign_upbtn">Log Out</button>
         </div>
-        <div class="profile">
-            <div class="side_nav">                              
-                <a href="staffProfile.php"><button class="side_btn">Staff Profile</button></a>
-                <a href="manageAppointments.php"><button class="side_btn">Appointments</button></a>
-                <a href="managePatients.php"><button class="side_btn">Manage Patients</button></a>
-                <a href="doctorSchedules.php"><button class="side_btn">Schedules</button></a>
-                <a href="managePrescriptions.php"><button class="side_btn">Manage Prescriptions</button></a>
-                <a href="conference.php"><button class="side_btn">Conference</button></a>
+        <div class="main_div">
+        <div class="side_nav">
+                <a href="manageDoctors.php"><button class="side_btn">Manage Doctors</button></a>
+                <a href="manageStaff.php"><button class="side_btn">Manage Staff</button></a>
+                <a href="managePatient.php"><button class="side_btn">Manage Patient</button></a>
+                <a href="manageDoctorSchedules.php"><button class="side_btn">View Doctor Schedules</button></a>
+                <a href="manageAppointments.php"><button class="side_btn">View Appointments</button></a>
+                <a href="manageConference.html"><button class="side_btn">View Conference</button></a>
+                
             </div>
 <?php
 $servername = "localhost";
@@ -50,6 +57,7 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (!empty($appointments)):
 ?>
+
 <table class="tbl">
     <thead>
         <tr>
@@ -59,7 +67,6 @@ if (!empty($appointments)):
             <th>Date & Time</th>
             <th>Slip</th>
             <th>Status</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -87,7 +94,7 @@ if (!empty($appointments)):
 </td>
 
             </td>
-            <td data-label="Action">
+            <!-- <td data-label="Action">
                 <form method="POST" action="appointmentsManage.php">
                     <input type="hidden" name="appointmentID" value="<?php echo $appointment['appointmentID']; ?>">
                     <?php if ($appointment['status'] == 'pending'): ?>
@@ -97,7 +104,7 @@ if (!empty($appointments)):
                         <span>Action unavailable</span>
                     <?php endif; ?>
                 </form>
-            </td>
+            </td> -->
         </tr>
         <?php endforeach; ?>
     </tbody>

@@ -53,7 +53,7 @@ $result = $stmt->get_result();
 <body>
     <div class="body_div">
         <div class="nav">
-            <img id="logo_img" src="/img/logo.jpg" alt="HelthBridge_logo">
+        <a href="../home.php"><img id="logo_img" src="../img/logo.jpg" alt="HelthBridge_logo"></a>
             <h2 class="topic">Welcome <span>
     <?php 
     if (!empty($_SESSION['registerUsername'])) {
@@ -61,23 +61,18 @@ $result = $stmt->get_result();
     } 
     ?>
             </span></h2>
-            <button class="sign_upbtn">Log Out</button>
+            <button class="sign_upbtn" onclick="window.location.href='logoutPatient.php'">Log Out</button>
         </div>
         </div>
         <div class="main_div">
-            <div class="side_nav">
-                <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
-                <a><button class="side_btn">Channelling</button></a>
-                <a href="appointmentScheduling.php"><button class="side_btn1">Appointment Scheduling</button></a>
-                <a href="channelStatus.php"><button class="side_btn1">Channel Status</button></a>
-                <a href="report.html"><button class="side_btn">Reports</button></a>
-                <a href="prescriptions.html"><button class="side_btn">Prescription</button></a>
-                <a href="payment.html"><button class="side_btn">Payments</button></a>
-                <a><button class="side_btn">Messages</button></a>
-                <a href="messageDoctor.html"><button class="side_btn1">Doctor</button></a>
-                <a href="messageStaff.html"><button class="side_btn1">Staff</button></a>
-                <a href="conference.html"><button class="side_btn">Doctor Conference</button></a>
-                <a href="contact.html"><button class="side_btn">Contact Us</button></a>
+        <div class="side_nav">
+            <a href="patientProfile.php"><button class="side_btn">Profile</button></a>
+                <a  href="appointmentScheduling.php"><button class="side_btn">Appointment sheduling</button></a>
+                <a href="channelStatus.php"><button class="side_btn">Channel Status</button></a>
+                <a href="prescriptions.php"><button class="side_btn"> Prescription</button></a>
+                <a href="payment.php"><button class="side_btn"> Payments</button></a>
+                <a href="conference.php"><button class="side_btn">Doctor Conferense</button></a>
+                <a href="contact.php"><button class="side_btn"> Contact us</button></a>
             </div>
             <div class="appointments">
     <h2>Ongoing Appointments</h2>
